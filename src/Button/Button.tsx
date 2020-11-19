@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`p-1 ${variant === "primary" ? "bg-black" : "bg-gray-200"}`}
+      className={`p-1 ${variant === "primary" ? "bg-green" : "bg-gray-200"}`}
       disabled={disabled}
       type={type}
       onClick={onClick}
