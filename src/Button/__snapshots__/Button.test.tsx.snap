@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<button
+  className="p-1"
+  variant="primary"
+>
+  Hello
+</button>
+`;
