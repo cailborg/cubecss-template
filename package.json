@@ -1,28 +1,47 @@
 {
-  "name": "tailwind",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+  "name": "@cailborg/storywind",
+  "version": "0.1.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cailborg/storywind.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@storybook/addon-actions": "^6.1.0",
+    "@storybook/addon-essentials": "^6.1.0",
+    "@storybook/addon-links": "^6.1.0",
+    "@storybook/node-logger": "^6.1.0",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@types/react-test-renderer": "^16.9.3",
-    "autoprefixer": "^10.0.2",
+    "babel-loader": "^8.2.1",
     "jest": "^26.6.3",
-    "postcss": "^8.1.7",
     "postcss-cli": "^8.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
     "react-test-renderer": "^17.0.1",
-    "tailwindcss": "^2.0.1",
+    "rollup": "^2.33.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-typescript2": "^0.29.0",
     "ts-jest": "^26.4.4",
     "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "^2.0.1-compat"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,9 +49,11 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
+    "build:rollup": "rollup -c",
+    "prepublishOnly": "yarn build:rollup"
   },
   "eslintConfig": {
     "extends": [
@@ -52,14 +73,9 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@storybook/addon-actions": "^6.1.0",
-    "@storybook/addon-essentials": "^6.1.0",
-    "@storybook/addon-links": "^6.1.0",
-    "@storybook/node-logger": "^6.1.0",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.0",
-    "babel-loader": "^8.2.1"
-  }
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "files": [
+    "build"
+  ]
 }
