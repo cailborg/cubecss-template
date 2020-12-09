@@ -1,9 +1,9 @@
 {
-  "name": "@cailborg/storywind",
-  "version": "0.1.3",
+  "name": "@cailborg/cubecss",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cailborg/storywind.git"
+    "url": "git+https://github.com/cailborg/cubecss.git"
   },
   "dependencies": {},
   "devDependencies": {
@@ -23,6 +23,8 @@
     "@types/react-test-renderer": "^16.9.3",
     "babel-loader": "^8.2.1",
     "jest": "^26.6.3",
+    "node-sass": "4.14.1",
+    "postcss": "^7",
     "postcss-cli": "^8.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -34,10 +36,7 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "ts-jest": "^26.4.4",
     "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4",
-    "autoprefixer": "^9",
-    "postcss": "^7",
-    "tailwindcss": "^2.0.1-compat"
+    "web-vitals": "^0.2.4"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
