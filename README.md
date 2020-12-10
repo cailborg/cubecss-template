@@ -28,6 +28,14 @@ Usses React, Typescript, SASS & Storybook
 
 > `yarn rollup` Build dist folder
 
+> `yarn figma:tokens` Build `tokens.json` from the linked Figma file
+
+> `yarn figma:icons` Build `iconsConfig.json` inside the `<Icon>` component, from the linked Figma file
+
+## Transforming design tokens
+
+Make sure you have the [Style Dictionary CLI](https://amzn.github.io/style-dictionary/#/quick_start?id=installation) installed on your machine.
+
 ## Publishing to Github Package Registry
 
 Set up your `.npmrc` file with the following:
