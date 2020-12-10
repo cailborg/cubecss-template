@@ -1,85 +1,90 @@
 {
-  "name": "@cailborg/cubecss",
-  "version": "0.1.2",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cailborg/cubecss.git"
-  },
-  "dependencies": {
-    "@react-aria/focus": "^3.2.3"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@rollup/plugin-commonjs": "^16.0.0",
-    "@rollup/plugin-node-resolve": "^10.0.0",
-    "@storybook/addon-actions": "^6.1.0",
-    "@storybook/addon-essentials": "^6.1.0",
-    "@storybook/addon-links": "^6.1.0",
-    "@storybook/node-logger": "^6.1.0",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.0",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.53",
-    "@types/react-dom": "^16.9.8",
-    "@types/react-test-renderer": "^16.9.3",
-    "babel-loader": "^8.2.1",
-    "jest": "^26.6.3",
-    "node-sass": "4.14.1",
-    "postcss": "^7",
-    "postcss-cli": "^8.3.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
-    "react-test-renderer": "^17.0.1",
-    "rollup": "^2.33.3",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^3.1.8",
-    "rollup-plugin-typescript2": "^0.29.0",
-    "ts-jest": "^26.4.4",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest --watch",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "rollup": "rollup -c",
-    "prepublishOnly": "yarn rollup"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "@cailborg/cubecss",
+    "version": "0.1.2",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cailborg/cubecss.git"
+    },
+    "dependencies": {
+        "@react-aria/focus": "^3.2.3"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.3",
+        "@rollup/plugin-commonjs": "^16.0.0",
+        "@rollup/plugin-node-resolve": "^10.0.0",
+        "@storybook/addon-actions": "^6.1.0",
+        "@storybook/addon-essentials": "^6.1.0",
+        "@storybook/addon-links": "^6.1.0",
+        "@storybook/node-logger": "^6.1.0",
+        "@storybook/preset-create-react-app": "^3.1.5",
+        "@storybook/react": "^6.1.0",
+        "@types/jest": "^26.0.15",
+        "@types/node": "^12.0.0",
+        "@types/react": "^16.9.53",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-test-renderer": "^16.9.3",
+        "babel-loader": "^8.2.1",
+        "dotenv": "^8.2.0",
+        "jest": "^26.6.3",
+        "node": "^15.3.0",
+        "node-sass": "4.14.1",
+        "postcss": "^7",
+        "postcss-cli": "^8.3.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-scripts": "4.0.0",
+        "react-test-renderer": "^17.0.1",
+        "rollup": "^2.33.3",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-postcss": "^3.1.8",
+        "rollup-plugin-typescript2": "^0.29.0",
+        "svgo": "^1.3.2",
+        "ts-jest": "^26.4.4",
+        "typescript": "^4.0.3",
+        "web-vitals": "^0.2.4"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "jest --watch",
+        "eject": "react-scripts eject",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "rollup": "rollup -c",
+        "prepublishOnly": "yarn rollup",
+        "figma:tokens": "node scripts/getFigmaTokens.js",
+        "figma:icons": "node scripts/getFigmaIcons.js"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "main": "build/index.js",
+    "style": "build/styles.css",
+    "module": "build/index.es.js",
+    "files": [
+        "build"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "main": "build/index.js",
-  "style": "build/styles.css",
-  "module": "build/index.es.js",
-  "files": [
-    "build"
-  ],
-  "typings": "build/index.d.ts",
-  "typescript": {
-    "definition": "build/index.d.ts"
-  }
+    "typings": "build/index.d.ts",
+    "typescript": {
+        "definition": "build/index.d.ts"
+    }
 }
