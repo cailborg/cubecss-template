@@ -1,11 +1,13 @@
 {
   "name": "@cailborg/cubecss",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cailborg/cubecss.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@react-aria/focus": "^3.2.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@rollup/plugin-commonjs": "^16.0.0",
@@ -50,7 +52,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "rollup": "rollup -c",
-    "prepublishOnly": "yarn build:rollup"
+    "prepublishOnly": "yarn rollup"
   },
   "eslintConfig": {
     "extends": [

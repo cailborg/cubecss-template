@@ -1,5 +1,7 @@
 .button {
   min-width: 200px;
+  outline: none;
+
   &[data-variant="primary"] {
     background: aqua;
     color: purple;
@@ -22,5 +24,9 @@
   }
   &:disabled {
     background: lightgray;
+  }
+  &.focus-ring {
+    outline: 2px solid dodgerblue;
+    outline-offset: 2px;
   }
 }

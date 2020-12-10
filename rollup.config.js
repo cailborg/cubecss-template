@@ -31,4 +31,5 @@ export default {
       extract: "styles.css",
     }),
   ],
+  external: ["react", "react-dom"],
 };

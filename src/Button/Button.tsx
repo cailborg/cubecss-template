@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
-import "./Button.scss"
+import "./Button.scss";
+import { FocusRing } from "@react-aria/focus";
 
 export interface ButtonProps {
   trackingId?: string;
@@ -20,18 +21,19 @@ export const Button: React.FC<ButtonProps> = ({
   ariaLabel,
   children,
 }) => {
-
   return (
-    <button
-      className={`button text-700 pad-top-300 radius`}
-      data-variant={variant}
-      disabled={disabled}
-      type={type}
-      onClick={onClick}
-      data-tracking-id={trackingId}
-      aria-label={ariaLabel}
-    >
-      {children}
-    </button>
+    <FocusRing focusRingClass="focus-ring">
+      <button
+        className={`button text-700 pad-top-300 radius`}
+        data-variant={variant}
+        disabled={disabled}
+        type={type}
+        onClick={onClick}
+        data-tracking-id={trackingId}
+        aria-label={ariaLabel}
+      >
+        {children}
+      </button>
+    </FocusRing>
   );
 };
