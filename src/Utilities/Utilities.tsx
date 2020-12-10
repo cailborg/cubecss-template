@@ -4,7 +4,7 @@ import React, { AllHTMLAttributes, ElementType } from "react";
 export interface UtilityProps
   extends Omit<AllHTMLAttributes<HTMLElement>, "className"> {
   component?: ElementType;
-  classNames: string;
+  classNames?: string;
 }
 
 export const Flow = ({

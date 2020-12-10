@@ -1,0 +1,6 @@
+.button {
+  width: 400px;
+  &[data-variant="primary"] {
+    color: red;
+  }
+}
