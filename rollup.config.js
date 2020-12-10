@@ -28,7 +28,7 @@ export default {
     postcss({
       extensions: [".scss"],
       modules: false,
-      extract: true,
+      extract: "styles.css",
     }),
   ],
 };

@@ -1,30 +1,21 @@
-# Getting Started with Create React App
+# A CubeCSS Design System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Usses React, Typescript, SASS & Storybook
 
-## Available Scripts
+## Styling methodology
 
-In the project directory, you can run:
+### Hierarchy
 
-### `yarn start`
+> CSS Reset
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> Global styles
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+> Composition classes (wrapper component)
 
-### `yarn test`
+> Utility classes (based on Design Tokens)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Block level styles (local to each component)
 
-### `yarn build`
+> Exceptions (Using `data` attributes)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Inline styles for whitelabeling (Uisng css-in-jsx)

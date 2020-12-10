@@ -1,4 +1,4 @@
-@import "theme";
+@import "tokens";
 
 .flow > * + * {
   margin-top: var(--flow-space, 1rem);

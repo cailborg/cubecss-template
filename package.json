@@ -73,6 +73,7 @@
     ]
   },
   "main": "build/index.js",
+  "style": "build/styles.css",
   "module": "build/index.es.js",
   "files": [
     "build"
