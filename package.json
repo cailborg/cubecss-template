@@ -1,6 +1,6 @@
 {
   "name": "@cailborg/cubecss",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cailborg/cubecss.git"
@@ -77,5 +77,9 @@
   "module": "build/index.es.js",
   "files": [
     "build"
-  ]
+  ],
+  "typings": "build/index.d.ts",
+  "typescript": {
+    "definition": "build/index.d.ts"
+  }
 }
