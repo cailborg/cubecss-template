@@ -1,5 +1,6 @@
-.button {
+.test {
   width: 400px;
+  --flow-space: 3rem;
   &[data-variant="primary"] {
     color: red;
   }

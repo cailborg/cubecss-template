@@ -16,6 +16,6 @@ Usses React, Typescript, SASS & Storybook
 
 > Block level styles (local to each component)
 
-> Exceptions (Using `data` attributes)
+> Exceptions (using `data` attributes)
 
-> Inline styles for whitelabeling (Uisng css-in-jsx)
+> Inline styles for whitelabeling (using `css-in-jsx`)

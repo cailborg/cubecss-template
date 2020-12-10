@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Flow, Wrapper, VisuallyHidden, Splitter} from "../Utilities/Utilities";
+import { Flow, Wrapper } from "../Utilities/Utilities";
 import "./TestComponent.scss"
 
 export interface TestComponentProps {
@@ -12,7 +12,8 @@ export const TestComponent: React.FC<TestComponentProps> = ({variant="primary", 
   return (
     <Wrapper>
       <Flow>
-        <div className="button bg-secondary" data-variant={variant}>{children}</div>
+        <div className="test bg-secondary" data-variant={variant}>{children}</div>
+        <div className="test bg-primary" data-variant={variant}>{children}</div>
       </Flow>
     </Wrapper>
   );
