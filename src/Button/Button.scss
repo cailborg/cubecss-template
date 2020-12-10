@@ -1,0 +1,26 @@
+.button {
+  min-width: 200px;
+  &[data-variant="primary"] {
+    background: aqua;
+    color: purple;
+  }
+  &[data-variant="secondary"] {
+    background: green;
+    color: purple;
+  }
+  &[data-variant="strong"] {
+    background: yellow;
+    color: purple;
+  }
+  &[data-variant="default"] {
+    background: lightpink;
+    color: purple;
+  }
+  &[data-variant="weak"] {
+    background: darkkhaki;
+    color: purple;
+  }
+  &:disabled {
+    background: lightgray;
+  }
+}

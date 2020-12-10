@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import "./Button.scss"
 
 export interface ButtonProps {
   trackingId?: string;
@@ -22,7 +23,8 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${variant === "primary" ? "bg-primary" : "bg-secondary"}`}
+      className={`button text-700 pad-top-300 radius`}
+      data-variant={variant}
       disabled={disabled}
       type={type}
       onClick={onClick}

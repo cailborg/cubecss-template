@@ -45,13 +45,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "jest --watch",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "build:tailwind": "postcss src/css/base.css -o src/css/tailwind.css",
-    "build:rollup": "rollup -c",
+    "rollup": "rollup -c",
     "prepublishOnly": "yarn build:rollup"
   },
   "eslintConfig": {

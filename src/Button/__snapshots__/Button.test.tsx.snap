@@ -2,7 +2,8 @@
 
 exports[`renders correctly 1`] = `
 <button
-  className="p-1 bg-green hover:bg-black"
+  className="button text-700 pad-top-300 radius"
+  data-variant="primary"
 >
   Hello
 </button>
