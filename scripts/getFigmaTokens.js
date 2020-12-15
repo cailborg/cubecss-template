@@ -5,28 +5,27 @@ const fetch = require("node-fetch");
 
 const nonFigmaDefinedStyleProperties = {
     borderStyles: {
-        none: "none",
-        dotted: "dotted",
-        solid: "solid",
+        None: { value: "none" },
+        Dotted: { value: "dotted" },
+        Solid: { value: "solid" },
     },
     durations: {
-        instant: 0,
-        immediate: 150,
-        quick: 250,
-        moderate: 500,
-        slow: 1000,
-        glacial: 2000,
+        Instant: { value: "0s" },
+        Immediate: { value: "0.15s" },
+        Quick: { value: "0.25s" },
+        Moderate: { value: "0.5s" },
+        Slow: { value: "1s" },
     },
     zIndices: {
-        auto: "auto",
-        top: 9999,
-        "500": 500,
-        "400": 400,
-        "300": 300,
-        "200": 200,
-        "100": 100,
-        "0": 0,
-        bottom: -9999,
+        0: { value: 0 },
+        100: { value: 100 },
+        200: { value: 200 },
+        300: { value: 300 },
+        400: { value: 400 },
+        500: { value: 500 },
+        auto: { value: "auto" },
+        top: { value: 9999 },
+        bottom: { value: -9999 },
     },
 };
 
@@ -40,25 +39,63 @@ const checkNull = (variable) => {
 
 const appendUnit = (value, unit) => (!value ? "0" : `${value}${unit}`);
 
+function RGBToHex(r, g, b) {
+    r = r.toString(16);
+    g = g.toString(16);
+    b = b.toString(16);
+
+    if (r.length == 1) r = "0" + r;
+    if (g.length == 1) g = "0" + g;
+    if (b.length == 1) b = "0" + b;
+
+    return "#" + r + g + b;
+}
+
 const extractStyleProperties = (layer) => {
     switch (layer.name) {
         case "colors":
             return {
+                // colors: Object.fromEntries(
+                //     layer.children.map((colors) => [
+                //         colors.name,
+                //         Array.from(
+                //             colors.children.map((color) => [
+                //                 color.name,
+                //                 {
+                //                     value: RGBToHex(
+                //                         Math.round(
+                //                             color.fills[0].color.r * 255
+                //                         ),
+                //                         Math.round(
+                //                             color.fills[0].color.g * 255
+                //                         ),
+                //                         Math.round(color.fills[0].color.b * 255)
+                //                     ),
+                //                 },
+                //             ])
+                //         ).reverse(),
+                //     ])
+                // ),
                 colors: Object.fromEntries(
-                    layer.children.map((colors) => [
-                        [colors.name],
-                        Array.from(
-                            colors.children.map(
-                                (color) =>
-                                    `rgba(${Math.round(
-                                        color.fills[0].color.r * 255
-                                    )}, ${Math.round(
-                                        color.fills[0].color.g * 255
-                                    )}, ${Math.round(
-                                        color.fills[0].color.b * 255
-                                    )}, ${Math.round(color.fills[0].color.a)})`
-                            )
-                        ).reverse(),
+                    layer.children.map((colorTone) => [
+                        colorTone.name,
+
+                        Object.fromEntries(
+                            colorTone.children.map((color) => [
+                                color.name,
+                                {
+                                    value: RGBToHex(
+                                        Math.round(
+                                            color.fills[0].color.r * 255
+                                        ),
+                                        Math.round(
+                                            color.fills[0].color.g * 255
+                                        ),
+                                        Math.round(color.fills[0].color.b * 255)
+                                    ),
+                                },
+                            ])
+                        ),
                     ])
                 ),
             };
@@ -66,7 +103,10 @@ const extractStyleProperties = (layer) => {
         case "space":
             return {
                 space: Object.fromEntries(
-                    layer.children.map((space) => [[space.name], space.size.x])
+                    layer.children.map((space) => [
+                        [space.name],
+                        { value: appendUnit(space.size.x, "px") },
+                    ])
                 ),
             };
 
@@ -75,7 +115,12 @@ const extractStyleProperties = (layer) => {
                 sizes: Object.fromEntries(
                     layer.children.map((sizes) => [
                         sizes.name,
-                        sizes.absoluteBoundingBox.width,
+                        {
+                            value: appendUnit(
+                                sizes.absoluteBoundingBox.width,
+                                "px"
+                            ),
+                        },
                     ])
                 ),
             };
@@ -85,34 +130,46 @@ const extractStyleProperties = (layer) => {
                 fonts: Object.fromEntries(
                     layer.children.map((type) => [
                         [type.name],
-                        `${type.style.fontFamily.replace(
-                            /\s+/g,
-                            ""
-                        )}, san-serif`,
+                        {
+                            value: `${type.style.fontFamily.replace(
+                                /\s+/g,
+                                ""
+                            )}, san-serif`,
+                        },
                     ])
                 ),
                 fontSize: Object.fromEntries(
                     layer.children.map((type) => [
                         [type.name],
-                        type.style.fontSize,
+                        { value: appendUnit(type.style.fontSize / 16, "rem") },
                     ])
                 ),
                 fontWeight: Object.fromEntries(
                     layer.children.map((type) => [
                         [type.name],
-                        type.style.fontWeight,
+                        { value: type.style.fontWeight },
                     ])
                 ),
                 lineHeight: Object.fromEntries(
                     layer.children.map((type) => [
                         [type.name],
-                        type.style.lineHeightPx,
+                        {
+                            value: appendUnit(
+                                type.style.lineHeightPx / 16,
+                                "rem"
+                            ),
+                        },
                     ])
                 ),
                 letterSpacing: Object.fromEntries(
                     layer.children.map((type) => [
                         [type.name],
-                        type.style.letterSpacing,
+                        {
+                            value: appendUnit(
+                                type.style.letterSpacing / 16,
+                                "rem"
+                            ),
+                        },
                     ])
                 ),
             };
@@ -121,7 +178,12 @@ const extractStyleProperties = (layer) => {
                 radii: Object.fromEntries(
                     layer.children.map((radii) => [
                         [radii.name],
-                        checkNull(radii.cornerRadius),
+                        {
+                            value: appendUnit(
+                                checkNull(radii.cornerRadius),
+                                "px"
+                            ),
+                        },
                     ])
                 ),
             };
@@ -130,7 +192,7 @@ const extractStyleProperties = (layer) => {
                 borderWidths: Object.fromEntries(
                     layer.children.map((border) => [
                         [border.name],
-                        border.strokeWeight,
+                        { value: appendUnit(border.strokeWeight, "px") },
                     ])
                 ),
             };
@@ -139,17 +201,22 @@ const extractStyleProperties = (layer) => {
                 shadows: Object.fromEntries(
                     layer.children.map((shadow) => [
                         shadow.name,
-                        `${appendUnit(
-                            shadow.effects[0].offset.x,
-                            "px"
-                        )} ${appendUnit(
-                            shadow.effects[0].offset.y,
-                            "px"
-                        )} ${appendUnit(shadow.effects[0].radius, "px")} rgba(${
-                            shadow.effects[0].color.r
-                        }, ${shadow.effects[0].color.g}, ${
-                            shadow.effects[0].color.b
-                        }, ${shadow.effects[0].color.a.toFixed(2)})`,
+                        {
+                            value: `${appendUnit(
+                                shadow.effects[0].offset.x,
+                                "px"
+                            )} ${appendUnit(
+                                shadow.effects[0].offset.y,
+                                "px"
+                            )} ${appendUnit(
+                                shadow.effects[0].radius,
+                                "px"
+                            )} rgba(${shadow.effects[0].color.r}, ${
+                                shadow.effects[0].color.g
+                            }, ${
+                                shadow.effects[0].color.b
+                            }, ${shadow.effects[0].color.a.toFixed(2)})`,
+                        },
                     ])
                 ),
             };
