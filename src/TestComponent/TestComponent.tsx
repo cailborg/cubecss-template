@@ -11,9 +11,9 @@ export const TestComponent: React.FC<TestComponentProps> = ({variant="primary", 
 
   return (
     <Wrapper>
-      <Flow>
-        <div className="test bg-secondary" data-variant={variant}>{children}</div>
-        <div className="test bg-primary" data-variant={variant}>{children}</div>
+      <Flow classNames="group">
+        <div className="test bg-secondary px-2 sm:px-5 " data-variant={variant}>{children}</div>
+        <div className="test text-grey-light text-2xl group-hover:bg-green" data-variant={variant}>{children}</div>
       </Flow>
     </Wrapper>
   );
