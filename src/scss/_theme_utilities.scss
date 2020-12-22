@@ -271,6 +271,19 @@ $opacity: (
     100: 1,
 );
 
+$z-index: (
+    0: 0,
+    100: 100,
+    200: 200,
+    300: 300,
+    400: 400,
+    500: 500,
+    auto: auto,
+    top: 9999,
+    bottom: -9999,
+    auto: auto,
+);
+
 // Utilities
 .container {
     width: 100%;
@@ -2666,40 +2679,26 @@ $opacity: (
 
 // z-index styles
 
-.z-0 {
-    z-index: 0;
+.z {
+    @include modifiers($map: $z-index, $attribute: "z-index", $prefix: "-");
 }
 
-.z-100 {
-    z-index: $z-indices-100;
+.focus-within\:z {
+    @include suffix-modifiers(
+        $map: $z-index,
+        $attribute: "z-index",
+        $prefix: "-",
+        $suffix: ":focus-within"
+    );
 }
 
-.z-200 {
-    z-index: $z-indices-200;
-}
-
-.z-300 {
-    z-index: $z-indices-300;
-}
-
-.z-400 {
-    z-index: $z-indices-400;
-}
-
-.z-500 {
-    z-index: $z-indices-500;
-}
-
-.z-top {
-    z-index: $z-indices-top;
-}
-
-.z-bottom {
-    z-index: $z-indices-bottom;
-}
-
-.z-auto {
-    z-index: auto;
+.focus\:z {
+    @include suffix-modifiers(
+        $map: $z-index,
+        $attribute: "z-index",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
 }
 
 // gap styles
