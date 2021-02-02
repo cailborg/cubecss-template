@@ -54,28 +54,7 @@ function RGBToHex(r, g, b) {
 const extractStyleProperties = (layer) => {
     switch (layer.name) {
         case "colors":
-            return {
-                // colors: Object.fromEntries(
-                //     layer.children.map((colors) => [
-                //         colors.name,
-                //         Array.from(
-                //             colors.children.map((color) => [
-                //                 color.name,
-                //                 {
-                //                     value: RGBToHex(
-                //                         Math.round(
-                //                             color.fills[0].color.r * 255
-                //                         ),
-                //                         Math.round(
-                //                             color.fills[0].color.g * 255
-                //                         ),
-                //                         Math.round(color.fills[0].color.b * 255)
-                //                     ),
-                //                 },
-                //             ])
-                //         ).reverse(),
-                //     ])
-                // ),
+            return { 
                 colors: Object.fromEntries(
                     layer.children.map((colorTone) => [
                         colorTone.name,
@@ -93,11 +72,13 @@ const extractStyleProperties = (layer) => {
                                         ),
                                         Math.round(color.fills[0].color.b * 255)
                                     ),
-                                },
-                            ])
+                                },                         
+                            ]),                            
                         ),
-                    ])
+                        
+                    ]), 
                 ),
+                
             };
 
         case "space":
@@ -239,14 +220,16 @@ const extractStyleProperties = (layer) => {
         );
 
         const file = await response.json();
-
+        
         const theme = file.document.children[1].children.reduce(
             (accumulator, layer) => ({
                 ...accumulator,
                 ...extractStyleProperties(layer),
             }),
-            nonFigmaDefinedStyleProperties
+            nonFigmaDefinedStyleProperties,
+            
         );
+        theme.colors.primary= { value: "{colors.eminence.600.value}" }
 
         console.log(theme);
 
