@@ -4,6 +4,8 @@ exports[`renders correctly 1`] = `
 <button
   className="button text-700 pad-top-300 radius"
   data-variant="primary"
+  onBlur={[Function]}
+  onFocus={[Function]}
 >
   Hello
 </button>

@@ -5,14 +5,14 @@ exports[`renders correctly 1`] = `
   className="wrapper "
 >
   <div
-    className="flow "
+    className="flow group"
   >
     <div
-      className="test bg-secondary"
+      className="test bg-secondary px-2 sm:px-5 "
       data-variant="primary"
     />
     <div
-      className="test bg-primary"
+      className="test text-grey-light text-2xl group-hover:bg-green leading-9"
       data-variant="primary"
     />
   </div>
