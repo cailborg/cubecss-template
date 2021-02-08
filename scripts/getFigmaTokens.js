@@ -225,7 +225,7 @@ const extractStyleProperties = (layer) => {
             nonFigmaDefinedStyleProperties,
             
         );
-        theme.colors.primary= { value: "{colors.eminence.600.value}" }
+        theme.colors.primary= { value: "{colors.amethyst.600.value}" }
 
         console.log(theme);
 

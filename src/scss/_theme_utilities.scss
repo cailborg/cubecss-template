@@ -201,7 +201,7 @@ $position-map: (
 );
 
 $colors: (
-    primary: var(--colors-primary),
+    primary: rgba(var(--colors-primary), 1),
     transparent: transparent,
     current: currentColor,
     grey: (
