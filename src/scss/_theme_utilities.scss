@@ -1,34 +1,4 @@
 @import "tokens";
-@import "test";
-
-// COLOURS
-.bg-primary {
-    background: $color-primary;
-}
-.bg-secondary {
-    background: $color-secondary;
-}
-.bg-secondary-shade {
-    background: $color-secondary-shade;
-}
-.bg-tertiary {
-    background: $color-tertiary;
-}
-.bg-tertiary-glare {
-    background: $color-tertiary-glare;
-}
-.bg-quaternary {
-    background: $color-quaternary;
-}
-.bg-light {
-    background: $color-light;
-}
-.bg-light-shade {
-    background: $color-light-shade;
-}
-.bg-grey {
-    background: $color-grey;
-}
 
 // Sass maps
 
@@ -117,6 +87,27 @@ $padding-map: (
 );
 
 $margin-map: (
+    "-px": (
+        -1px,
+    ),   
+    "-1": (
+        -8px,
+    ),
+    "-2": (
+        -16px,
+    ), 
+    "-3": (
+        -24px,
+    ),
+    "-4": (
+        -32px,
+    ), 
+    "-5": (
+        -48px,
+    ),
+    "-6": (
+        -64px,
+    ),
     "0": (
         0,
     ),
@@ -210,7 +201,9 @@ $position-map: (
 );
 
 $colors: (
-    red: #ff3538,
+    primary: rgba(var(--colors-primary), 1),
+    transparent: transparent,
+    current: currentColor,
     grey: (
         base: #404145,
         light: #c7c7cd,

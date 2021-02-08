@@ -1,6 +1,6 @@
 # A CubeCSS Design System
 
-Usses React, Typescript, SASS & Storybook
+Uses React, Typescript, SASS & Storybook
 
 ## Styling methodology
 
@@ -32,7 +32,23 @@ Usses React, Typescript, SASS & Storybook
 
 > `yarn figma:icons` Build `iconsConfig.json` inside the `<Icon>` component, from the linked Figma file
 
+## `.env` setup
+
+Create a `.env` file and add the following:
+
+```
+
+FIGMA_FILE_ID=YOUR_FIGMA_FILE_ID_HERE
+FIGMA_PAT=YOUR_FIGMA_PERSONAL_ACCESS_TOKEN_HERE
+
+```
+
+Your Figma file ID will be the string of letters/numbers immediately following the `www.figma.com/file/` in the file URL.
+You can create an access token by following [these instructions](https://www.figma.com/developers/api#access-tokens)
+
 ## Transforming design tokens
+
+> `yarn tokens` Run style dictionary
 
 Make sure you have the [Style Dictionary CLI](https://amzn.github.io/style-dictionary/#/quick_start?id=installation) installed on your machine.
 

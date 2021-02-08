@@ -39,17 +39,17 @@ const checkNull = (variable) => {
 
 const appendUnit = (value, unit) => (!value ? "0" : `${value}${unit}`);
 
-function RGBToHex(r, g, b) {
-    r = r.toString(16);
-    g = g.toString(16);
-    b = b.toString(16);
+// function RGBToHex(r, g, b) {
+//     r = r.toString(16);
+//     g = g.toString(16);
+//     b = b.toString(16);
 
-    if (r.length == 1) r = "0" + r;
-    if (g.length == 1) g = "0" + g;
-    if (b.length == 1) b = "0" + b;
+//     if (r.length == 1) r = "0" + r;
+//     if (g.length == 1) g = "0" + g;
+//     if (b.length == 1) b = "0" + b;
 
-    return "#" + r + g + b;
-}
+//     return "#" + r + g + b;
+// }
 
 const extractStyleProperties = (layer) => {
     switch (layer.name) {
@@ -63,15 +63,11 @@ const extractStyleProperties = (layer) => {
                             colorTone.children.map((color) => [
                                 color.name,
                                 {
-                                    value: RGBToHex(
-                                        Math.round(
-                                            color.fills[0].color.r * 255
-                                        ),
-                                        Math.round(
-                                            color.fills[0].color.g * 255
-                                        ),
-                                        Math.round(color.fills[0].color.b * 255)
-                                    ),
+                                    value: `${Math.round(
+                                        color.fills[0].color.r * 255
+                                      )}, ${Math.round(color.fills[0].color.g * 255)}, ${Math.round(
+                                        color.fills[0].color.b * 255
+                                      )}`
                                 },                         
                             ]),                            
                         ),
@@ -147,7 +143,7 @@ const extractStyleProperties = (layer) => {
                         [type.name],
                         {
                             value: appendUnit(
-                                type.style.letterSpacing / 16,
+                                Math.round((type.style.letterSpacing+ Number.EPSILON) * 100) / 100 / 16,
                                 "rem"
                             ),
                         },
@@ -229,7 +225,7 @@ const extractStyleProperties = (layer) => {
             nonFigmaDefinedStyleProperties,
             
         );
-        theme.colors.primary= { value: "{colors.eminence.600.value}" }
+        theme.colors.primary= { value: "{colors.amethyst.600.value}" }
 
         console.log(theme);
 
