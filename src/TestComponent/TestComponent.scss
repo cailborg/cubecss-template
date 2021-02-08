@@ -1,7 +1,10 @@
+@import "../scss/tokens";
+
 .test {
   width: 400px;
   --flow-space: 3rem;
   &[data-variant="primary"] {
     color: red;
   }
+  background-color: rgba(var(--colors-primary), 0.5);
 }

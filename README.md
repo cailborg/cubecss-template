@@ -1,6 +1,6 @@
 # A CubeCSS Design System
 
-Usses React, Typescript, SASS & Storybook
+Uses React, Typescript, SASS & Storybook
 
 ## Styling methodology
 
@@ -33,6 +33,8 @@ Usses React, Typescript, SASS & Storybook
 > `yarn figma:icons` Build `iconsConfig.json` inside the `<Icon>` component, from the linked Figma file
 
 ## Transforming design tokens
+
+> `yarn tokens` Run style dictionary
 
 Make sure you have the [Style Dictionary CLI](https://amzn.github.io/style-dictionary/#/quick_start?id=installation) installed on your machine.
 

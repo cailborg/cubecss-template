@@ -1,9 +1,4 @@
 @import "tokens";
-@import "test";
-
-:root {
-    --colors-primary: #{$colors-primary};
-}
 
 // Sass maps
 
@@ -92,6 +87,27 @@ $padding-map: (
 );
 
 $margin-map: (
+    "-px": (
+        -1px,
+    ),   
+    "-1": (
+        -8px,
+    ),
+    "-2": (
+        -16px,
+    ), 
+    "-3": (
+        -24px,
+    ),
+    "-4": (
+        -32px,
+    ), 
+    "-5": (
+        -48px,
+    ),
+    "-6": (
+        -64px,
+    ),
     "0": (
         0,
     ),
@@ -186,6 +202,8 @@ $position-map: (
 
 $colors: (
     primary: var(--colors-primary),
+    transparent: transparent,
+    current: currentColor,
     grey: (
         base: #404145,
         light: #c7c7cd,

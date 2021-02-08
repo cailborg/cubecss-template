@@ -6,10 +6,10 @@
 
 .splitter {
   > :last-child {
-    margin-top: $size-500;
+    margin-top: var(--space-xs);
   }
 
-  @media (min-width: $breakpoints-md) {
+  @media (min-width: 48em) {
     display: flex;
 
     > * {
@@ -18,7 +18,7 @@
 
     > :last-child {
       margin-top: 0;
-      margin-left: $size-500;
+      margin-left: var(--space-xs);
       min-width: 22rem;
     }
   }
@@ -28,7 +28,7 @@
   max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 $size-500;
+  padding: 0 var(--space-xs);
 }
 
 .visually-hidden {
