@@ -1,33 +1,8 @@
 @import "tokens";
 @import "test";
 
-// COLOURS
-.bg-primary {
-    background: $color-primary;
-}
-.bg-secondary {
-    background: $color-secondary;
-}
-.bg-secondary-shade {
-    background: $color-secondary-shade;
-}
-.bg-tertiary {
-    background: $color-tertiary;
-}
-.bg-tertiary-glare {
-    background: $color-tertiary-glare;
-}
-.bg-quaternary {
-    background: $color-quaternary;
-}
-.bg-light {
-    background: $color-light;
-}
-.bg-light-shade {
-    background: $color-light-shade;
-}
-.bg-grey {
-    background: $color-grey;
+:root {
+    --colors-primary: #{$colors-primary};
 }
 
 // Sass maps
@@ -210,7 +185,7 @@ $position-map: (
 );
 
 $colors: (
-    red: #ff3538,
+    primary: var(--colors-primary),
     grey: (
         base: #404145,
         light: #c7c7cd,
