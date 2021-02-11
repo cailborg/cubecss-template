@@ -1128,6 +1128,10 @@
     max-width: 65ch;
 }
 
+.max-w {
+    @include modifiers($map: $width-map, $attribute: "max-width", $prefix: "-");
+}
+
 .max-w-screen {
     @include modifiers($map: $width-map, $attribute: "max-width", $prefix: "-");
 }
@@ -3018,12 +3022,12 @@
 }
 
 .translate-x {
-    @include modifiers($map: $margin-map, $attribute: "--lp-translate-x", $prefix: "-");
+    @include modifiers($map: $position-map, $attribute: "--lp-translate-x", $prefix: "-");
 }
 
 .hover\:translate-x {
     @include modifiers(
-        $map: $margin-map,
+        $map: $position-map,
         $attribute: "--lp-translate-x",
         $prefix: "-",
         $suffix: ":hover"
@@ -3032,7 +3036,7 @@
 
 .focus\:translate-x {
     @include modifiers(
-        $map: $margin-map,
+        $map: $position-map,
         $attribute: "--lp-translate-x",
         $prefix: "-",
         $suffix: ":focus"
@@ -3040,12 +3044,12 @@
 }
 
 .translate-y {
-    @include modifiers($map: $margin-map, $attribute: "--lp-translate-y", $prefix: "-");
+    @include modifiers($map: $position-map, $attribute: "--lp-translate-y", $prefix: "-");
 }
 
 .hover\:translate-y {
     @include modifiers(
-        $map: $margin-map,
+        $map: $position-map,
         $attribute: "--lp-translate-y",
         $prefix: "-",
         $suffix: ":hover"
@@ -3054,7 +3058,7 @@
 
 .focus\:translate-y {
     @include modifiers(
-        $map: $margin-map,
+        $map: $position-map,
         $attribute: "--lp-translate-y",
         $prefix: "-",
         $suffix: ":focus"
