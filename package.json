@@ -59,7 +59,7 @@
         "eject": "react-scripts eject",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "rollup": "rollup -c && npx purgecss --css build/styles.css --content src/**/*.tsx --output build && npx cleancss -O1 -o build/styles.css build/styles.css",
+        "rollup": "rollup -c",
         "prepublishOnly": "yarn rollup",
         "figma:tokens": "node scripts/getFigmaTokens.js",
         "figma:icons": "node scripts/getFigmaIcons.js",
