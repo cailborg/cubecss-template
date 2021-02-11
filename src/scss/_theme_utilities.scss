@@ -1,280 +1,7 @@
 @import "tokens";
+@import "theme_utility_maps";
+@import "theme_utility_mixins";
 
-// Sass maps
-
-@mixin modifiers(
-    $map,
-    $attribute,
-    $prefix: "-",
-    $separator: "-",
-    $base: "base",
-    $remove: null
-) {
-    @each $key, $value in $map {
-        @if ($remove) {
-            $key: str-replace($key, $remove, "");
-        }
-        &#{if($key != $base, #{$prefix}#{$key}, '')} {
-            @if type-of($value) == "map" {
-                @include modifiers(
-                    $value,
-                    $attribute,
-                    $prefix,
-                    $separator,
-                    $base,
-                    $remove
-                );
-            } @else if type-of($attribute) == "list" {
-                @each $a in $attribute {
-                    #{$a}: $value;
-                }
-            } @else {
-                #{$attribute}: $value;
-            }
-        }
-    }
-}
-
-@mixin suffix-modifiers(
-    $map,
-    $attribute: "color",
-    $prefix: "-",
-    $separator: "-",
-    $suffix: " "
-) {
-    @each $name, $value in $map {
-        &#{$prefix}#{$name} {
-            @each $tone, $hex in $value {
-                &#{$separator}#{$tone}#{$suffix} {
-                    #{$attribute}: $hex;
-                }
-            }
-        }
-    }
-}
-
-$padding-map: (
-    "0": (
-        0,
-    ),
-    "px": (
-        1px,
-    ),
-    "1": (
-        8px,
-    ),
-    "2": (
-        16px,
-    ),
-    "3": (
-        24px,
-    ),
-    "4": (
-        32px,
-    ),
-    "5": (
-        48px,
-    ),
-    "6": (
-        64px,
-    ),
-    "7": (
-        96px,
-    ),
-    "8": (
-        128px,
-    ),
-);
-
-$margin-map: (
-    "-px": (
-        -1px,
-    ),   
-    "-1": (
-        -8px,
-    ),
-    "-2": (
-        -16px,
-    ), 
-    "-3": (
-        -24px,
-    ),
-    "-4": (
-        -32px,
-    ), 
-    "-5": (
-        -48px,
-    ),
-    "-6": (
-        -64px,
-    ),
-    "0": (
-        0,
-    ),
-    "auto": (
-        auto,
-    ),
-    "px": (
-        1px,
-    ),
-    "1": (
-        8px,
-    ),
-    "2": (
-        16px,
-    ),
-    "3": (
-        24px,
-    ),
-    "4": (
-        32px,
-    ),
-    "5": (
-        48px,
-    ),
-    "6": (
-        64px,
-    ),
-    "7": (
-        96px,
-    ),
-    "8": (
-        128px,
-    ),
-);
-
-$position-map: (
-    "0": (
-        0,
-    ),
-    "auto": (
-        auto,
-    ),
-    "px": (
-        1px,
-    ),
-    "1": (
-        8px,
-    ),
-    "2": (
-        16px,
-    ),
-    "3": (
-        24px,
-    ),
-    "4": (
-        32px,
-    ),
-    "5": (
-        48px,
-    ),
-    "6": (
-        64px,
-    ),
-    "7": (
-        96px,
-    ),
-    "8": (
-        128px,
-    ),
-    "1\\/2": (
-        50%,
-    ),
-    "1\\/3": (
-        33.333333%,
-    ),
-    "2\\/3": (
-        66.666667%,
-    ),
-    "1\\/4": (
-        25%,
-    ),
-    "2\\/4": (
-        50%,
-    ),
-    "3\\/4": (
-        75%,
-    ),
-    "full": (
-        100%,
-    ),
-);
-
-$colors: (
-    primary: rgba(var(--colors-primary), 1),
-    transparent: transparent,
-    current: currentColor,
-    grey: (
-        base: #404145,
-        light: #c7c7cd,
-    ),
-    yellow: (
-        base: #ecaf2d,
-    ),
-    green: (
-        base: #5ad864,
-    ),
-);
-
-$font-sizes: (
-    xs: 12px,
-    sm: 14px,
-    base: 16px,
-    lg: 18px,
-    xl: 20px,
-    2xl: 24px,
-    3xl: 32px,
-    4xl: 48px,
-    5xl: 56px,
-);
-
-$leading: (
-    1: 0.75rem,
-    2: 1rem,
-    3: 1.25rem,
-    4: 1.5rem,
-    5: 1.75rem,
-    6: 2rem,
-    7: 2.25rem,
-    8: 2.5rem,
-    9: 2.75rem,
-    none: 1,
-    tight: 1.25,
-    snug: 1.375,
-    normal: 1.5,
-    relaxed: 1.625,
-    loose: 2,
-);
-
-$opacity: (
-    0: 0,
-    5: 0.05,
-    10: 0.1,
-    20: 0.2,
-    25: 0.25,
-    30: 0.3,
-    40: 0.4,
-    50: 0.5,
-    60: 0.6,
-    70: 0.7,
-    75: 0.75,
-    80: 0.8,
-    90: 0.9,
-    95: 0.95,
-    100: 1,
-);
-
-$z-index: (
-    0: 0,
-    100: 100,
-    200: 200,
-    300: 300,
-    400: 400,
-    500: 500,
-    top: 9999,
-    bottom: -9999,
-    auto: auto,
-);
 
 // Utilities
 .container {
@@ -392,7 +119,7 @@ $z-index: (
 
 .bg {
     @include modifiers(
-        $map: $colors,
+        $map: $colors-map,
         $attribute: "background-color",
         $prefix: "-"
     );
@@ -400,15 +127,15 @@ $z-index: (
 
 .group:hover .group-hover\:bg {
     @include modifiers(
-        $map: $colors,
+        $map: $colors-map,
         $attribute: "background-color",
         $prefix: "-"
     );
 }
 
 .focus-within\:bg {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "background-color",
         $prefix: "-",
         $suffix: ":focus-within"
@@ -416,8 +143,8 @@ $z-index: (
 }
 
 .hover\:bg {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "background-color",
         $prefix: "-",
         $suffix: ":hover"
@@ -425,8 +152,8 @@ $z-index: (
 }
 
 .focus\:bg {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "background-color",
         $prefix: "-",
         $suffix: ":focus"
@@ -538,19 +265,36 @@ $z-index: (
     background-size: contain;
 }
 
-// border styles
 
 .border {
-    @include modifiers($map: $colors, $attribute: "border-color", $prefix: "-");
+    @include modifiers($map: $colors-map, $attribute: "border-color", $prefix: "-");
+    @include modifiers($map: $borders-map, $attribute: "border-width", $prefix: "-");
+}
+
+.border-t {
+    @include modifiers($map: $borders-map, $attribute: "border-top-width", $prefix: "-");
+}
+
+.border-b {
+    @include modifiers($map: $borders-map, $attribute: "border-bottom-width", $prefix: "-");
+}
+
+.border-l {
+    @include modifiers($map: $borders-map, $attribute: "border-left-width", $prefix: "-");
+}
+
+.border-r {
+    @include modifiers($map: $borders-map, $attribute: "border-right-width", $prefix: "-");
 }
 
 .group:hover .group-hover\:border {
-    @include modifiers($map: $colors, $attribute: "border-color", $prefix: "-");
+    @include modifiers($map: $colors-map, $attribute: "border-color", $prefix: "-");
+    @include modifiers($map: $borders-map, $attribute: "border-width", $prefix: "-");
 }
 
 .focus-within\:border {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "border-color",
         $prefix: "-",
         $suffix: ":focus-within"
@@ -558,21 +302,11 @@ $z-index: (
 }
 
 .hover\:border {
-    @include suffix-modifiers(
-        $map: $colors,
-        $attribute: "border-color",
-        $prefix: "-",
-        $suffix: ":hover"
-    );
+    @include modifiers($map: $colors-map, $attribute: "border-color", $prefix: "-", $suffix: ":hover");
 }
 
 .focus\:border {
-    @include suffix-modifiers(
-        $map: $colors,
-        $attribute: "border-color",
-        $prefix: "-",
-        $suffix: ":focus"
-    );
+    @include modifiers($map: $colors-map, $attribute: "border-color", $prefix: "-", $suffix: ":focus");
 }
 
 .border-collapse {
@@ -583,364 +317,95 @@ $z-index: (
     border-collapse: separate;
 }
 
-.rounded-none {
-    border-radius: 0px;
-}
-
-.rounded-sm {
-    border-radius: 0.125rem;
-}
-
 .rounded {
-    border-radius: 0.25rem;
-}
-
-.rounded-md {
-    border-radius: 0.375rem;
-}
-
-.rounded-lg {
-    border-radius: 0.5rem;
-}
-
-.rounded-xl {
-    border-radius: 0.75rem;
-}
-
-.rounded-2xl {
-    border-radius: 1rem;
-}
-
-.rounded-3xl {
-    border-radius: 1.5rem;
-}
-
-.rounded-full {
-    border-radius: 9999px;
-}
-
-.rounded-t-none {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-}
-
-.rounded-r-none {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-
-.rounded-b-none {
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
-.rounded-l-none {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
-.rounded-t-sm {
-    border-top-left-radius: 0.125rem;
-    border-top-right-radius: 0.125rem;
-}
-
-.rounded-r-sm {
-    border-top-right-radius: 0.125rem;
-    border-bottom-right-radius: 0.125rem;
-}
-
-.rounded-b-sm {
-    border-bottom-right-radius: 0.125rem;
-    border-bottom-left-radius: 0.125rem;
-}
-
-.rounded-l-sm {
-    border-top-left-radius: 0.125rem;
-    border-bottom-left-radius: 0.125rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-radius",
+        ),
+        $prefix: "-"
+    );
 }
 
 .rounded-t {
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-top-left-radius",
+            "border-top-right-radius",
+        ),
+        $prefix: "-"
+    );
 }
-
 .rounded-r {
-    border-top-right-radius: 0.25rem;
-    border-bottom-right-radius: 0.25rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-top-right-radius",
+            "border-bottom-right-radius",
+        ),
+        $prefix: "-"
+    );
 }
-
 .rounded-b {
-    border-bottom-right-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-bottom-left-radius",
+            "border-bottom-right-radius",
+        ),
+        $prefix: "-"
+    );
 }
-
 .rounded-l {
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-}
-
-.rounded-t-md {
-    border-top-left-radius: 0.375rem;
-    border-top-right-radius: 0.375rem;
-}
-
-.rounded-r-md {
-    border-top-right-radius: 0.375rem;
-    border-bottom-right-radius: 0.375rem;
-}
-
-.rounded-b-md {
-    border-bottom-right-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
-}
-
-.rounded-l-md {
-    border-top-left-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
-}
-
-.rounded-t-lg {
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-}
-
-.rounded-r-lg {
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-}
-
-.rounded-b-lg {
-    border-bottom-right-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-}
-
-.rounded-l-lg {
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-}
-
-.rounded-t-xl {
-    border-top-left-radius: 0.75rem;
-    border-top-right-radius: 0.75rem;
-}
-
-.rounded-r-xl {
-    border-top-right-radius: 0.75rem;
-    border-bottom-right-radius: 0.75rem;
-}
-
-.rounded-b-xl {
-    border-bottom-right-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-}
-
-.rounded-l-xl {
-    border-top-left-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
-}
-
-.rounded-t-2xl {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-}
-
-.rounded-r-2xl {
-    border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-}
-
-.rounded-b-2xl {
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-}
-
-.rounded-l-2xl {
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-}
-
-.rounded-t-3xl {
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem;
-}
-
-.rounded-r-3xl {
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-}
-
-.rounded-b-3xl {
-    border-bottom-right-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-}
-
-.rounded-l-3xl {
-    border-top-left-radius: 1.5rem;
-    border-bottom-left-radius: 1.5rem;
-}
-
-.rounded-t-full {
-    border-top-left-radius: 9999px;
-    border-top-right-radius: 9999px;
-}
-
-.rounded-r-full {
-    border-top-right-radius: 9999px;
-    border-bottom-right-radius: 9999px;
-}
-
-.rounded-b-full {
-    border-bottom-right-radius: 9999px;
-    border-bottom-left-radius: 9999px;
-}
-
-.rounded-l-full {
-    border-top-left-radius: 9999px;
-    border-bottom-left-radius: 9999px;
-}
-
-.rounded-tl-none {
-    border-top-left-radius: 0px;
-}
-
-.rounded-tr-none {
-    border-top-right-radius: 0px;
-}
-
-.rounded-br-none {
-    border-bottom-right-radius: 0px;
-}
-
-.rounded-bl-none {
-    border-bottom-left-radius: 0px;
-}
-
-.rounded-tl-sm {
-    border-top-left-radius: 0.125rem;
-}
-
-.rounded-tr-sm {
-    border-top-right-radius: 0.125rem;
-}
-
-.rounded-br-sm {
-    border-bottom-right-radius: 0.125rem;
-}
-
-.rounded-bl-sm {
-    border-bottom-left-radius: 0.125rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-top-left-radius",
+            "border-bottom-left-radius",
+        ),
+        $prefix: "-"
+    );
 }
 
 .rounded-tl {
-    border-top-left-radius: 0.25rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-top-left-radius",
+        ),
+        $prefix: "-"
+    );
 }
 
 .rounded-tr {
-    border-top-right-radius: 0.25rem;
-}
-
-.rounded-br {
-    border-bottom-right-radius: 0.25rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-top-right-radius",
+        ),
+        $prefix: "-"
+    );
 }
 
 .rounded-bl {
-    border-bottom-left-radius: 0.25rem;
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-bottom-left-radius",
+        ),
+        $prefix: "-"
+    );
 }
 
-.rounded-tl-md {
-    border-top-left-radius: 0.375rem;
-}
-
-.rounded-tr-md {
-    border-top-right-radius: 0.375rem;
-}
-
-.rounded-br-md {
-    border-bottom-right-radius: 0.375rem;
-}
-
-.rounded-bl-md {
-    border-bottom-left-radius: 0.375rem;
-}
-
-.rounded-tl-lg {
-    border-top-left-radius: 0.5rem;
-}
-
-.rounded-tr-lg {
-    border-top-right-radius: 0.5rem;
-}
-
-.rounded-br-lg {
-    border-bottom-right-radius: 0.5rem;
-}
-
-.rounded-bl-lg {
-    border-bottom-left-radius: 0.5rem;
-}
-
-.rounded-tl-xl {
-    border-top-left-radius: 0.75rem;
-}
-
-.rounded-tr-xl {
-    border-top-right-radius: 0.75rem;
-}
-
-.rounded-br-xl {
-    border-bottom-right-radius: 0.75rem;
-}
-
-.rounded-bl-xl {
-    border-bottom-left-radius: 0.75rem;
-}
-
-.rounded-tl-2xl {
-    border-top-left-radius: 1rem;
-}
-
-.rounded-tr-2xl {
-    border-top-right-radius: 1rem;
-}
-
-.rounded-br-2xl {
-    border-bottom-right-radius: 1rem;
-}
-
-.rounded-bl-2xl {
-    border-bottom-left-radius: 1rem;
-}
-
-.rounded-tl-3xl {
-    border-top-left-radius: 1.5rem;
-}
-
-.rounded-tr-3xl {
-    border-top-right-radius: 1.5rem;
-}
-
-.rounded-br-3xl {
-    border-bottom-right-radius: 1.5rem;
-}
-
-.rounded-bl-3xl {
-    border-bottom-left-radius: 1.5rem;
-}
-
-.rounded-tl-full {
-    border-top-left-radius: 9999px;
-}
-
-.rounded-tr-full {
-    border-top-right-radius: 9999px;
-}
-
-.rounded-br-full {
-    border-bottom-right-radius: 9999px;
-}
-
-.rounded-bl-full {
-    border-bottom-left-radius: 9999px;
+.rounded-br {
+    @include modifiers(
+        $map: $radii-map,
+        $attribute: (
+            "border-bottom-right-radius",
+        ),
+        $prefix: "-"
+    );
 }
 
 .border-solid {
@@ -961,106 +426,6 @@ $z-index: (
 
 .border-none {
     border-style: none;
-}
-
-.border-0 {
-    border-width: 0px;
-}
-
-.border-2 {
-    border-width: 2px;
-}
-
-.border-4 {
-    border-width: 4px;
-}
-
-.border-8 {
-    border-width: 8px;
-}
-
-.border {
-    border-width: 1px;
-}
-
-.border-t-0 {
-    border-top-width: 0px;
-}
-
-.border-r-0 {
-    border-right-width: 0px;
-}
-
-.border-b-0 {
-    border-bottom-width: 0px;
-}
-
-.border-l-0 {
-    border-left-width: 0px;
-}
-
-.border-t-2 {
-    border-top-width: 2px;
-}
-
-.border-r-2 {
-    border-right-width: 2px;
-}
-
-.border-b-2 {
-    border-bottom-width: 2px;
-}
-
-.border-l-2 {
-    border-left-width: 2px;
-}
-
-.border-t-4 {
-    border-top-width: 4px;
-}
-
-.border-r-4 {
-    border-right-width: 4px;
-}
-
-.border-b-4 {
-    border-bottom-width: 4px;
-}
-
-.border-l-4 {
-    border-left-width: 4px;
-}
-
-.border-t-8 {
-    border-top-width: 8px;
-}
-
-.border-r-8 {
-    border-right-width: 8px;
-}
-
-.border-b-8 {
-    border-bottom-width: 8px;
-}
-
-.border-l-8 {
-    border-left-width: 8px;
-}
-
-.border-t {
-    border-top-width: 1px;
-}
-
-.border-r {
-    border-right-width: 1px;
-}
-
-.border-b {
-    border-bottom-width: 1px;
-}
-
-.border-l {
-    border-left-width: 1px;
 }
 
 // box sizing styles
@@ -1763,24 +1128,8 @@ $z-index: (
     max-width: 65ch;
 }
 
-.max-w-screen-sm {
-    max-width: 640px;
-}
-
-.max-w-screen-md {
-    max-width: 768px;
-}
-
-.max-w-screen-lg {
-    max-width: 1024px;
-}
-
-.max-w-screen-xl {
-    max-width: 1280px;
-}
-
-.max-w-screen-2xl {
-    max-width: 1536px;
+.max-w-screen {
+    @include modifiers($map: $width-map, $attribute: "max-width", $prefix: "-");
 }
 
 //min height and width
@@ -1815,6 +1164,10 @@ $z-index: (
     min-width: -webkit-max-content;
     min-width: -moz-max-content;
     min-width: max-content;
+}
+
+.min-w {
+    @include modifiers($map: $width-map, $attribute: "min-width", $prefix: "-");
 }
 
 // object styles
@@ -1878,16 +1231,16 @@ $z-index: (
 // opacity styles
 
 .opacity {
-    @include modifiers($map: $opacity, $attribute: "opacity", $prefix: "-");
+    @include modifiers($map: $opacity-map, $attribute: "opacity", $prefix: "-");
 }
 
 .group:hover .group-hover\:opacity {
-    @include modifiers($map: $opacity, $attribute: "opacity", $prefix: "-");
+    @include modifiers($map: $opacity-map, $attribute: "opacity", $prefix: "-");
 }
 
 .focus-within\:opacity {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "opacity",
         $prefix: "-",
         $suffix: ":focus-within"
@@ -1895,8 +1248,8 @@ $z-index: (
 }
 
 .hover\:opacity {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $opacity-map,
         $attribute: "opacity",
         $prefix: "-",
         $suffix: ":hover"
@@ -1904,8 +1257,8 @@ $z-index: (
 }
 
 .focus\:opacity {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $opacity-map,
         $attribute: "opacity",
         $prefix: "-",
         $suffix: ":focus"
@@ -2249,21 +1602,21 @@ $z-index: (
 // text styles
 
 .text {
-    @include modifiers($map: $colors, $attribute: "color", $prefix: "-");
+    @include modifiers($map: $colors-map, $attribute: "color", $prefix: "-");
     @include modifiers(
-        $map: $font-sizes,
+        $map: $font-sizes-map,
         $attribute: "font-size",
         $prefix: "-"
     );
 }
 
 .group:hover .group-hover\:text {
-    @include modifiers($map: $colors, $attribute: "color", $prefix: "-");
+    @include modifiers($map: $colors-map, $attribute: "color", $prefix: "-");
 }
 
 .focus-within\:text {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "color",
         $prefix: "-",
         $suffix: ":focus-within"
@@ -2271,8 +1624,8 @@ $z-index: (
 }
 
 .hover\:text {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "color",
         $prefix: "-",
         $suffix: ":hover"
@@ -2280,8 +1633,8 @@ $z-index: (
 }
 
 .focus\:text {
-    @include suffix-modifiers(
-        $map: $colors,
+    @include modifiers(
+        $map: $colors-map,
         $attribute: "color",
         $prefix: "-",
         $suffix: ":focus"
@@ -2305,7 +1658,7 @@ $z-index: (
 }
 
 .leading {
-    @include modifiers($map: $leading, $attribute: "line-height", $prefix: "-");
+    @include modifiers($map: $leading-map, $attribute: "line-height", $prefix: "-");
 }
 
 .truncate {
@@ -2416,28 +1769,8 @@ $z-index: (
     -moz-osx-font-smoothing: auto;
 }
 
-.tracking-tighter {
-    letter-spacing: -0.05em;
-}
-
-.tracking-tight {
-    letter-spacing: -0.025em;
-}
-
-.tracking-normal {
-    letter-spacing: 0em;
-}
-
-.tracking-wide {
-    letter-spacing: 0.025em;
-}
-
-.tracking-wider {
-    letter-spacing: 0.05em;
-}
-
-.tracking-widest {
-    letter-spacing: 0.1em;
+.tracking {
+    @include modifiers($map: $tracking-map, $attribute: "letter-spacing", $prefix: "-");
 }
 
 .select-none {
@@ -2519,6 +1852,118 @@ $z-index: (
 
 .break-all {
     word-break: break-all;
+}
+
+// variant numeric styles
+
+.ordinal,
+.slashed-zero,
+.lining-nums,
+.oldstyle-nums,
+.proportional-nums,
+.tabular-nums,
+.diagonal-fractions,
+.stacked-fractions {
+    --lp-ordinal: var(--lp-empty, /*!*/ /*!*/);
+    --lp-slashed-zero: var(--lp-empty, /*!*/ /*!*/);
+    --lp-numeric-figure: var(--lp-empty, /*!*/ /*!*/);
+    --lp-numeric-spacing: var(--lp-empty, /*!*/ /*!*/);
+    --lp-numeric-fraction: var(--lp-empty, /*!*/ /*!*/);
+    font-variant-numeric: var(--lp-ordinal) var(--lp-slashed-zero)
+        var(--lp-numeric-figure) var(--lp-numeric-spacing)
+        var(--lp-numeric-fraction);
+}
+
+.normal-nums {
+    font-variant-numeric: normal;
+}
+
+.ordinal {
+    --lp-ordinal: ordinal;
+}
+
+.slashed-zero {
+    --lp-slashed-zero: slashed-zero;
+}
+
+.lining-nums {
+    --lp-numeric-figure: lining-nums;
+}
+
+.oldstyle-nums {
+    --lp-numeric-figure: oldstyle-nums;
+}
+
+.proportional-nums {
+    --lp-numeric-spacing: proportional-nums;
+}
+
+.tabular-nums {
+    --lp-numeric-spacing: tabular-nums;
+}
+
+.diagonal-fractions {
+    --lp-numeric-fraction: diagonal-fractions;
+}
+
+.stacked-fractions {
+    --lp-numeric-fraction: stacked-fractions;
+}
+
+// Placeholder styles
+
+.placeholder {
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: "::placeholder"
+    );
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: "::-webkit-input-placeholder"
+    );
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: ":-ms-input-placeholder"
+    );
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: "::-ms-input-placeholder"
+    );
+}
+
+.focus\:placeholder {
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: ":focus::placeholder"
+    );
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: ":focus::-webkit-input-placeholder"
+    );
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: ":focus:-ms-input-placeholder"
+    );
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "color",
+        $prefix: "-",
+        $suffix: ":focus::-ms-input-placeholder"
+    );
 }
 
 // visibility styles
@@ -2669,15 +2114,19 @@ $z-index: (
     width: max-content;
 }
 
+.w {
+    @include modifiers($map: $width-map, $attribute: "width", $prefix: "-");
+}
+
 // z-index styles
 
 .z {
-    @include modifiers($map: $z-index, $attribute: "z-index", $prefix: "-");
+    @include modifiers($map: $z-index-map, $attribute: "z-index", $prefix: "-");
 }
 
 .focus-within\:z {
-    @include suffix-modifiers(
-        $map: $z-index,
+    @include modifiers(
+        $map: $z-index-map,
         $attribute: "z-index",
         $prefix: "-",
         $suffix: ":focus-within"
@@ -2685,8 +2134,8 @@ $z-index: (
 }
 
 .focus\:z {
-    @include suffix-modifiers(
-        $map: $z-index,
+    @include modifiers(
+        $map: $z-index-map,
         $attribute: "z-index",
         $prefix: "-",
         $suffix: ":focus"
@@ -2695,30 +2144,19 @@ $z-index: (
 
 // gap styles
 
-.gap-0 {
-    gap: 0px;
+.gap {
+    @include modifiers($map: $padding-map, $attribute: "gap", $prefix: "-");
 }
 
-.gap-px {
-    gap: 1px;
+.gap-x {
+    @include modifiers($map: $padding-map, $attribute: (
+        "-webkit-column-gap",
+        "column-gap",
+    ), $prefix: "-");
 }
 
-.gap-x-0 {
-    -webkit-column-gap: 0px;
-    column-gap: 0px;
-}
-
-.gap-x-px {
-    -webkit-column-gap: 1px;
-    column-gap: 1px;
-}
-
-.gap-y-0 {
-    row-gap: 0px;
-}
-
-.gap-y-px {
-    row-gap: 1px;
+.gap-y {
+    @include modifiers($map: $padding-map, $attribute: "row-gap", $prefix: "-");
 }
 
 // grid styles
@@ -3119,6 +2557,260 @@ $z-index: (
     grid-row-end: auto;
 }
 
+
+// Shadow styles
+
+.shadow {
+    @include modifiers($map: $shadow-map, $attribute: "box-shadow", $prefix: "-");
+}
+
+.group:hover .group-hover\:shadow {
+    @include modifiers($map: $shadow-map, $attribute: "box-shadow", $prefix: "-");
+}
+
+.focus-within\:shadow {
+    @include modifiers(
+        $map: $shadow-map,
+        $attribute: "box-shadow",
+        $prefix: "-",
+        $suffix: ":focus-within"
+    );
+}
+
+.hover\:shadow {
+    @include modifiers(
+        $map: $shadow-map,
+        $attribute: "box-shadow",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:shadow {
+    @include modifiers(
+        $map: $shadow-map,
+        $attribute: "box-shadow",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+// Ring styles
+
+* {
+    --lp-ring-inset: var(--lp-empty, /*!*/ /*!*/);
+    --lp-ring-offset-width: 0px;
+    --lp-ring-offset-color: #fff;
+    --lp-ring-color: rgba(59, 130, 246, 0.5);
+    --lp-ring-offset-shadow: 0 0 #0000;
+    --lp-ring-shadow: 0 0 #0000;
+}
+
+
+.ring-0 {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(0px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.ring-1 {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(1px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.ring-2 {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(2px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.ring-4 {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(4px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.ring-8 {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(8px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.ring-inset {
+    --lp-ring-inset: inset;
+}
+
+.focus-within\:ring-0:focus-within {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(0px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus-within\:ring-1:focus-within {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(1px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus-within\:ring-2:focus-within {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(2px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus-within\:ring-4:focus-within {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(4px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus-within\:ring-8:focus-within {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(8px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus-within\:ring-inset:focus-within {
+    --lp-ring-inset: inset;
+}
+
+.focus\:ring-0:focus {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(0px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus\:ring-1:focus {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(1px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus\:ring-2:focus {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(2px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus\:ring-4:focus {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(4px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus\:ring-8:focus {
+    --lp-ring-offset-shadow: var(--lp-ring-inset) 0 0 0
+        var(--lp-ring-offset-width) var(--lp-ring-offset-color);
+    --lp-ring-shadow: var(--lp-ring-inset) 0 0 0
+        calc(8px + var(--lp-ring-offset-width)) var(--lp-ring-color);
+    box-shadow: var(--lp-ring-offset-shadow), var(--lp-ring-shadow),
+        var(--lp-shadow, 0 0 #0000);
+}
+
+.focus\:ring-inset:focus {
+    --lp-ring-inset: inset;
+}
+
+.ring-offset {
+    @include modifiers($map: $colors-map, $attribute: "--lp-ring-offset-color", $prefix: "-");
+    @include modifiers($map: $ring-map, $attribute: "--lp-ring-offset-width", $prefix: "-");
+}
+
+.focus-within\:ring-offset {
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "--lp-ring-offset-color",
+        $prefix: "-",
+        $suffix: ":focus-within"
+    );
+    @include modifiers(
+        $map: $ring-map,
+        $attribute: "--lp-ring-offset-width",
+        $prefix: "-",
+        $suffix: ":focus-within"
+    );
+}
+
+.focus\:ring-offset {
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "--lp-ring-offset-color",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+    @include modifiers(
+        $map: $ring-map,
+        $attribute: "--lp-ring-offset-width",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.ring {
+    @include modifiers($map: $colors-map, $attribute: "--lp-ring-color", $prefix: "-");
+}
+
+.focus-within\:ring {
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "--lp-ring-color",
+        $prefix: "-",
+        $suffix: ":focus-within"
+    );
+}
+
+.focus\:ring {
+    @include modifiers(
+        $map: $colors-map,
+        $attribute: "--lp-ring-color",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
 // transform styles
 
 .transform-none {
@@ -3160,6 +2852,216 @@ $z-index: (
 .origin-top-left {
     transform-origin: top left;
 }
+
+.transform {
+    --lp-translate-x: 0;
+    --lp-translate-y: 0;
+    --lp-rotate: 0;
+    --lp-skew-x: 0;
+    --lp-skew-y: 0;
+    --lp-scale-x: 1;
+    --lp-scale-y: 1;
+    transform: translateX(var(--lp-translate-x))
+        translateY(var(--lp-translate-y)) rotate(var(--lp-rotate))
+        skewX(var(--lp-skew-x)) skewY(var(--lp-skew-y))
+        scaleX(var(--lp-scale-x)) scaleY(var(--lp-scale-y));
+}
+
+.transform-gpu {
+    --lp-translate-x: 0;
+    --lp-translate-y: 0;
+    --lp-rotate: 0;
+    --lp-skew-x: 0;
+    --lp-skew-y: 0;
+    --lp-scale-x: 1;
+    --lp-scale-y: 1;
+    transform: translate3d(var(--lp-translate-x), var(--lp-translate-y), 0)
+        rotate(var(--lp-rotate)) skewX(var(--lp-skew-x)) skewY(var(--lp-skew-y))
+        scaleX(var(--lp-scale-x)) scaleY(var(--lp-scale-y));
+}
+
+.will-change {
+    will-change: transform;
+  }
+
+
+.scale {
+    @include modifiers($map: $scale-map, $attribute: ("--lp-scale-x", "--lp-scale-y"), $prefix: "-");
+}
+
+.hover\:scale {
+    @include modifiers(
+        $map: $scale-map,
+        $attribute: ("--lp-scale-x", "--lp-scale-y"),
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:scale {
+    @include modifiers(
+        $map: $scale-map,
+        $attribute: ("--lp-scale-x", "--lp-scale-y"),
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.scale-x {
+    @include modifiers($map: $scale-map, $attribute: "--lp-scale-x", $prefix: "-");
+}
+
+.hover\:scale-x {
+    @include modifiers(
+        $map: $scale-map,
+        $attribute: "--lp-scale-x",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:scale-x {
+    @include modifiers(
+        $map: $scale-map,
+        $attribute: "--lp-scale-x",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.scale-y {
+    @include modifiers($map: $scale-map, $attribute: "--lp-scale-y", $prefix: "-");
+}
+
+.hover\:scale-y {
+    @include modifiers(
+        $map: $scale-map,
+        $attribute: "--lp-scale-y",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:scale-y {
+    @include modifiers(
+        $map: $scale-map,
+        $attribute: "--lp-scale-y",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.rotate {
+    @include modifiers($map: $rotate-map, $attribute: "--lp-rotate", $prefix: "-");
+}
+
+.hover\:rotate {
+    @include modifiers(
+        $map: $rotate-map,
+        $attribute: "--lp-rotate",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:rotate {
+    @include modifiers(
+        $map: $rotate-map,
+        $attribute: "--lp-rotate",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.skew-x {
+    @include modifiers($map: $rotate-map, $attribute: "--lp-skew-x", $prefix: "-");
+}
+
+.hover\:skew-x {
+    @include modifiers(
+        $map: $rotate-map,
+        $attribute: "--lp-skew-x",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:skew-x {
+    @include modifiers(
+        $map: $rotate-map,
+        $attribute: "--lp-skew-x",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.skew-y {
+    @include modifiers($map: $rotate-map, $attribute: "--lp-skew-y", $prefix: "-");
+}
+
+.hover\:skew-y {
+    @include modifiers(
+        $map: $rotate-map,
+        $attribute: "--lp-skew-y",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:skew-y {
+    @include modifiers(
+        $map: $rotate-map,
+        $attribute: "--lp-skew-y",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.translate-x {
+    @include modifiers($map: $margin-map, $attribute: "--lp-translate-x", $prefix: "-");
+}
+
+.hover\:translate-x {
+    @include modifiers(
+        $map: $margin-map,
+        $attribute: "--lp-translate-x",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:translate-x {
+    @include modifiers(
+        $map: $margin-map,
+        $attribute: "--lp-translate-x",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+.translate-y {
+    @include modifiers($map: $margin-map, $attribute: "--lp-translate-y", $prefix: "-");
+}
+
+.hover\:translate-y {
+    @include modifiers(
+        $map: $margin-map,
+        $attribute: "--lp-translate-y",
+        $prefix: "-",
+        $suffix: ":hover"
+    );
+}
+
+.focus\:translate-y {
+    @include modifiers(
+        $map: $margin-map,
+        $attribute: "--lp-translate-y",
+        $prefix: "-",
+        $suffix: ":focus"
+    );
+}
+
+
 
 // transition styles
 

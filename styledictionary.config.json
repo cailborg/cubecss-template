@@ -8,7 +8,8 @@
                     "format": "css/variables",
                     "destination": "src/scss/_tokens.scss"
                 }
-            ]
+            ],
+            "prefix": "lp"
         }
     }
 }
