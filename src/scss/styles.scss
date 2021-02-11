@@ -1,8 +1,11 @@
 @import "reset";
 @import "global";
+@import "tokens";
 @import "theme_utilities";
 @import "composition";
 
+// Adding overrides here will take precendence over everything, this simulates the consuming application's base stylesheet
+
 :root {
-    --colors-primary: 34,54,100 !important;
+    --colors-primary: 60,54,120 !important;
 }
