@@ -892,6 +892,14 @@
 
 // font styles
 
+.font-heading {
+    font-family: var(--lp-fonts-heading-xs), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+}
+
+.font-body {
+    font-family: var(--lp-fonts-body-1), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+}
+
 .font-thin {
     font-weight: 100;
 }
