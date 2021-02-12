@@ -1,7 +1,5 @@
-@import "../scss/quantity_mixin";
-
 .test {
-  width: 400px;
+  width: 100%;
   --flow-space: 3rem;
   &[data-variant="primary"] {
     color: red;
@@ -11,14 +9,6 @@
 }
 
 .container-test {
-  --container-margin: 2rem;
-  --container-breakpoint: 30rem;
-}
-
-
-.container {
-  $number: 2; // Only display horizontally if four or fewer
-  @include quantity(#{$number}) { 
-    flex-basis: 100%;
-  }
+  --container-margin: 1rem;
+  --container-breakpoint: 20rem;
 }
