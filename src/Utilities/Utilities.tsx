@@ -29,3 +29,9 @@ export const VisuallyHidden = ({
   component: Component = "div",
   ...rest
 }: UtilityProps) => <Component className={`visually-hidden ${classNames ? classNames : ""}`} {...rest} />;
+
+export const Container = ({
+  classNames,
+  component: Component = "div",
+  ...rest
+}: UtilityProps) => <Component className={`container ${classNames ? classNames : ""}`} {...rest} />;
