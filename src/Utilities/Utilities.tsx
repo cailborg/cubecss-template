@@ -30,8 +30,8 @@ export const VisuallyHidden = ({
   ...rest
 }: UtilityProps) => <Component className={`visually-hidden ${classNames ? classNames : ""}`} {...rest} />;
 
-export const Container = ({
+export const FlexContainer = ({
   classNames,
   component: Component = "div",
   ...rest
-}: UtilityProps) => <Component className={`container ${classNames ? classNames : ""}`} {...rest} />;
+}: UtilityProps) => <Component className={`flexContainer ${classNames ? classNames : ""}`} {...rest} />;

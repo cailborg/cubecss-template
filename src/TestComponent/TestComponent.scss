@@ -8,7 +8,6 @@
   background-color: rgba(var(--colors-primary), 0.5);
 }
 
-.container-test {
-  --container-margin: 1rem;
-  --container-breakpoint: 20rem;
+.flexContainer-override {
+  --flex-min: 20rem;
 }

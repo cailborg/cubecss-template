@@ -43,18 +43,21 @@
   white-space: nowrap;
 }
 
-// Container queries utility
+// Container queries utility styles
 
-.container {
+.flexContainer {
+  --flex-min: 35rem;
   display: flex;
   flex-wrap: wrap;
-  --container-margin: 1rem;
-  --container-breakpoint: 40rem;
-  --modifier: calc(var(--container-breakpoint) - 100%);
-  // margin: calc(var(--container-margin) * -1);
-  & > * {
+  margin: 1rem -0.5rem;
+
+  > * {
     flex-grow: 1;
-    flex-basis: calc(var(--modifier) * 999);
-    margin: var(--container-margin);
+    flex-basis: calc((var(--flex-min) - 100%) * 999);
+    margin: 0.5rem;
+
+    &.flex--auto {
+      flex: 0 1 auto;
+    }
   }
 }
