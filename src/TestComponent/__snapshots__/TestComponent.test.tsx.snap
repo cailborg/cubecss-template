@@ -15,5 +15,34 @@ exports[`renders correctly 1`] = `
       className="font-body test shadow-high border-thick border-eminence-600 hover:border-sky-600 border-indigo-600 p-jumbo hover:text-indigo-600 text-heading-xl group-hover:bg-green leading-heading-xl"
     />
   </div>
+  <div
+    className="flexContainer flexContainer-override"
+  >
+    <div
+      className="bg-indigo-600 p-lg"
+    >
+      im an item
+    </div>
+    <div
+      className="bg-indigo-600 p-lg"
+    >
+      im an item
+    </div>
+    <div
+      className="bg-indigo-600 p-lg"
+    >
+      im an item
+    </div>
+    <div
+      className="bg-indigo-600 p-lg"
+    >
+      im an item
+    </div>
+  </div>
+  <div
+    className="visually-hidden "
+  >
+    you can't see me
+  </div>
 </div>
 `;

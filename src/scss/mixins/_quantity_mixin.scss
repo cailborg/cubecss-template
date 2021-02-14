@@ -1,0 +1,6 @@
+@mixin quantity($quantity, $element: '*') {
+    & > :nth-last-child(n+#{$quantity}):first-child,
+    & > :nth-last-child(n+#{$quantity}):first-child ~ #{$element} {
+      @content;
+    }
+  }
