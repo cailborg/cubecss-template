@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <FocusRing focusRingClass="focus-ring">
       <button
-        className={`button text-700 pad-top-300 radius`}
+        className={`button font-heading font-bold rounded-sm`}
         data-variant={variant}
         disabled={disabled}
         type={type}
