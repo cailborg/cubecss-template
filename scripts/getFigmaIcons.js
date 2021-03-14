@@ -155,7 +155,7 @@ function xmlToJson(xml) {
 
 async function imageURL(id) {
   const response = await fetch(
-    `https://api.figma.com/v1/images/${process.env.FIGMA_FILE_ID}?ids=${id}&format=svg`,
+    `https://api.figma.com/v1/images/${process.env.FIGMA_ASSET_ID}?ids=${id}&format=svg`,
 
     {
       headers: {
@@ -172,7 +172,7 @@ async function imageURL(id) {
 (async () => {
   try {
     const response = await fetch(
-      `https://api.figma.com/v1/files/${process.env.FIGMA_FILE_ID}?node-id=39%3A2`,
+      `https://api.figma.com/v1/files/${process.env.FIGMA_ASSET_ID}?node-id=39%3A2`,
 
       {
         headers: {
@@ -182,7 +182,7 @@ async function imageURL(id) {
     );
 
     const file = await response.json();
-    const icons = file.document.children[2].children[0].children;
+    const icons = file.document.children[1].children[0].children;
     let store = {};
     for (const icon of icons) {
       let result = await imageURL(icon.id);
@@ -207,7 +207,7 @@ async function imageURL(id) {
     );
     process.exit();
   } catch (error) {
-    console.error(error);
+    console.error(error, "Check that your icon vectors are combined into one single path");
     process.exit(1);
   }
 })();
