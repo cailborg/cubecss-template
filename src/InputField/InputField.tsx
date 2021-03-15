@@ -1,9 +1,9 @@
 import React from "react";
-import "./TextField.scss";
+import "./InputField.scss";
 import TextField from "@material-ui/core/TextField";
 import { InputModeType } from "./types";
 
-export interface TextFieldProps {
+export interface InputFieldProps {
     type?: string;
     ref?: React.Ref<HTMLElement>;
     inputRef?: React.Ref<HTMLInputElement>;
@@ -30,7 +30,7 @@ export interface TextFieldProps {
     inputMode?: InputModeType;
 }
 
-export const InputField: React.FC<TextFieldProps> = React.forwardRef(
+export const InputField: React.FC<InputFieldProps> = React.forwardRef(
     function InputField(
         {
             type,

@@ -6,7 +6,7 @@ import "./TestComponent.scss"
 export interface TestComponentProps {
   variant: "primary" | "secondary";
   children?: ReactNode;
-  width: Sizes;
+  width?: Sizes;
 }
 
 export const TestComponent: React.FC<TestComponentProps> = ({variant="primary", children, width}) => {

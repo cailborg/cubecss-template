@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <button
-  className="button text-700 pad-top-300 radius"
+  className="button flex justify-center items-center min-w-xs rounded-sm transition-all cursor-pointer box-border large"
   data-variant="primary"
   onBlur={[Function]}
   onFocus={[Function]}

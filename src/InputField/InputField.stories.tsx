@@ -1,16 +1,16 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
-import { InputField, TextFieldProps } from "./TextField";
+import { InputField, InputFieldProps } from "./InputField";
 
 export default {
-  title: "Components/TextField",
+  title: "Components/InputField",
   component: InputField,
   argTypes: {
     children: { control: "text" },
   },
 } as Meta;
 
-const Template: Story<TextFieldProps> = (args) => <InputField {...args} />;
+const Template: Story<InputFieldProps> = (args) => <InputField {...args} />;
 
 export const Standard = Template.bind({});
 Standard.args = {

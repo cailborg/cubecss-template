@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "../Button/Button";
+import { InputField } from "./InputField";
 import renderer from "react-test-renderer";
 
 it("renders correctly", () => {
-  const tree = renderer.create(<Button variant="primary">Hello</Button>).toJSON();
+  const tree = renderer.create(<InputField/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
