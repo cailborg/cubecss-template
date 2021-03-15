@@ -15,10 +15,10 @@ export interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({
   trackingId,
-  variant,
+  variant = "primary",
   type,
   disabled,
-  size,
+  size = "large",
   onClick,
   ariaLabel,
   children,
@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <FocusRing focusRingClass="focus-ring">
       <button
-        className={`button rounded-sm bg-neutral-600 ${size}` }
+        className={`button flex justify-center items-center min-w-xs rounded-sm transition-all cursor-pointer box-border ${size}` }
         data-variant={variant}
         disabled={disabled}
         type={type}
