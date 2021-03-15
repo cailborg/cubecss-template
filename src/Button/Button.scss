@@ -1,31 +1,60 @@
 .button {
   min-width: 200px;
+  color: white;
+  & svg {
+    fill: white;
+  };
   &:focus {
     outline:none;
   }
-
+  &.large {
+    height: var(--lp-space-xxl);
+    font-size: var(--lp-font-size-button-lg);
+    font-weight: var(--lp-font-weight-button-lg);
+    line-height: var(--lp-line-height-button-lg);
+    letter-spacing: var(--lp-letter-spacing-button-lg);
+  }
+  &.medium {
+    height: var(--lp-space-lg);
+    font-size: var(--lp-font-size-button-md);
+    font-weight: var(--lp-font-weight-button-md);
+    line-height: var(--lp-line-height-button-md);
+    letter-spacing: var(--lp-letter-spacing-button-md);
+  }
+  &.small {
+    height: var(--lp-space-md);
+    font-size: var(--lp-font-size-button-sm);
+    font-weight: var(--lp-font-weight-button-sm);
+    line-height: var(--lp-line-height-button-sm);
+    letter-spacing: var(--lp-letter-spacing-button-sm);
+  }
   &[data-variant="primary"] {
-    background: aqua;
-    color: purple;
+    background: rgba(var(--lp-colors-primary), 1);
   }
-  &[data-variant="secondary"] {
-    background: green;
-    color: purple;
+  &[data-variant="reversed"] {
+    background: rgba(var(--lp-colors-neutral-50), 1);
+    color: rgba(var(--lp-colors-amethyst-800), 1);
+    & svg {
+      fill: rgba(var(--lp-colors-amethyst-800), 1);
+    }
   }
-  &[data-variant="strong"] {
-    background: yellow;
-    color: purple;
+  &[data-variant="destructive"] {
+    background: rgba(var(--lp-colors-persimmon-600), 1);
+    color: rgba(var(--lp-colors-neutral-900), 1);
+    & svg {
+      fill: rgba(var(--lp-colors-neutral-900), 1);
+    }
   }
-  &[data-variant="default"] {
-    background: lightpink;
-    color: purple;
-  }
-  &[data-variant="weak"] {
-    background: darkkhaki;
-    color: purple;
+  &[data-variant="ghost"] {
+    background: none;
+    color: rgba(var(--lp-colors-amethyst-800), 1);
+    & svg {
+      fill: rgba(var(--lp-colors-amethyst-800), 1);
+    }
   }
   &:disabled {
-    background: lightgray;
+    background: rgba(var(--lp-colors-neutral-50), 1);
+    color: rgba(var(--lp-colors-neutral-400), 1);
   }
   &.focus-ring {
     outline: 2px solid dodgerblue;
