@@ -3,9 +3,11 @@
 @import "tokens";
 @import "theme_utilities";
 @import "composition";
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
 
 // Adding overrides here will take precendence over everything, this simulates the consuming application's base stylesheet
 
-:root {
-    --colors-primary: 60,54,120 !important;
-}
+// :root {
+//     --lp-colors-primary: 10,94,190 !important;
+// }

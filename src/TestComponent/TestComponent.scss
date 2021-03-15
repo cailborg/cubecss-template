@@ -1,13 +1,13 @@
 .test {
-  width: 100%;
-  --flow-space: 3rem;
-  &[data-variant="primary"] {
-    color: red;
-  }
-  // We want this background colour to be configurable by the user - so it's specificity takes precedence over the utility class `background-` but is overriden by adding `--colors-primary` to the application root
-  background-color: rgba(var(--colors-primary), 0.5);
+    width: 100%;
+    --flow-space: 3rem;
+    &[data-variant="primary"] {
+        color: red;
+    }
+    // We want this background colour to be configurable by the user - so it's specificity takes precedence over the utility class `background-` but is overriden by adding `--colors-primary` to the application root
+    background-color: rgba(var(--colors-primary), 0.5);
 }
 
 .flexContainer-override {
-  --flex-min: 20rem;
+    --flex-min: 35rem;
 }

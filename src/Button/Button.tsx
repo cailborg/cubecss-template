@@ -4,7 +4,8 @@ import { FocusRing } from "@react-aria/focus";
 
 export interface ButtonProps {
   trackingId?: string;
-  variant: "primary" | "secondary" | "strong" | "default" | "weak";
+  variant: "primary" | "reversed" | "destructive" | "ghost";
+  size: "large" | "medium" | "small";
   type?: "button" | "submit";
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -14,9 +15,10 @@ export interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({
   trackingId,
-  variant,
+  variant = "primary",
   type,
   disabled,
+  size = "large",
   onClick,
   ariaLabel,
   children,
@@ -24,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <FocusRing focusRingClass="focus-ring">
       <button
-        className={`button text-700 pad-top-300 radius`}
+        className={`button flex justify-center items-center min-w-xs rounded-sm transition-all cursor-pointer box-border ${size}` }
         data-variant={variant}
         disabled={disabled}
         type={type}

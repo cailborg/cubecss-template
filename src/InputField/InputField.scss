@@ -1,0 +1,40 @@
+.textfield {
+    & > .MuiInputBase-root {
+        color: rgba(var(--lp-colors-neutral-800), 1);
+    }
+    & > .MuiFormLabel-root {
+        color: rgba(var(--lp-colors-neutral-600), 1);
+        font-size: var(--lp-font-size-body-2);
+        font-family: 'Source Sans Pro', sans-serif;
+        &.Mui-disabled {
+            color: rgba(var(--lp-colors-neutral-400), 1);
+        }
+        &.Mui-error {
+            color: rgba(var(--lp-colors-error-600), 1);
+        }
+        &.Mui-focused {
+          color: rgba(var(--lp-colors-amethyst-600), 1);
+      }
+    }
+    & > .MuiInput-underline:before {
+        border-bottom: var(--lp-border-widths-thin) var(--lp-border-styles-solid) rgba(var(--lp-colors-neutral-300), 1);
+    }
+    & > .MuiInput-underline:after {
+        border-bottom: var(--lp-border-widths-thick) var(--lp-border-styles-solid) rgba(var(--lp-colors-amethyst-600), 1);
+    }
+    & > .MuiInput-underline.Mui-error:after {
+        border-bottom: var(--lp-border-widths-thick) var(--lp-border-styles-solid) rgba(var(--lp-colors-error-600), 1);
+    }
+    & > .MuiInput-underline:hover:not(.Mui-disabled):before {
+        border-bottom: var(--lp-border-widths-thick) var(--lp-border-styles-solid) rgba(var(--lp-colors-neutral-300), 1);
+    }
+    & > .MuiInputBase-input {
+        color: rgba(var(--lp-colors-neutral-800), 1);
+    }
+    & > .MuiFormHelperText-root {
+        color: rgba(var(--lp-colors-neutral-600), 1);
+        &.Mui-error {
+            color: rgba(var(--lp-colors-error-600), 1);
+        }
+    }
+}

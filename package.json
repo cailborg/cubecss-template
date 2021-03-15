@@ -6,6 +6,7 @@
         "url": "git+https://github.com/cailborg/cubecss.git"
     },
     "dependencies": {
+        "@material-ui/core": "^4.11.3",
         "@react-aria/focus": "^3.2.3"
     },
     "devDependencies": {
