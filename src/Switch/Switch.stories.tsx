@@ -5,6 +5,11 @@ import { Switch, SwitchProps } from "./Switch";
 export default {
   title: "Components/Switch",
   component: Switch,
+  argTypes:{
+    onChange:{
+      control:false
+    }
+  }
 } as Meta;
 
 
