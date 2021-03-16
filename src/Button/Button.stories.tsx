@@ -1,4 +1,3 @@
-import React from "react";
 import { Story, Meta } from "@storybook/react/types-6-0";
 import { Button, ButtonProps } from "./Button";
 import { Icon } from "../Icon/Icon";
@@ -12,6 +11,6 @@ export default {
   },
 } as Meta;
 
-export const Template: Story<ButtonProps> = (args) => <Button {...args}>{args.children}<Icon name ="ArrowRight"/></Button>;
-Template.args = { children: 'Button Text' };
+export const All: Story<ButtonProps> = (args) => <Button {...args}>{args.children}<Icon name ="ArrowRight"/></Button>;
+All.args = { children: 'Button Text' };
 

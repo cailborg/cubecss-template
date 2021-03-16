@@ -1,17 +1,14 @@
-import React from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
-import { Switch, SwitchProps } from "./Switch";
+import { useState } from "react";
+import { Meta } from "@storybook/react/types-6-0";
+import { Switch } from "./Switch";
 
 export default {
-  title: "Components/Switch",
-  component: Switch,
-  argTypes:{
-    onChange:{
-      control:false
-    }
-  }
+    title: "Components/Switch",
+    component: Switch,
 } as Meta;
 
-
-export const Template: Story<SwitchProps> = (args) => <Switch {...args}/>;
-Template.args = { label: 'Label Text' };
+export const Standard = (args: any) => {
+    const [checked, setChecked] = useState(false);
+    return <Switch {...args} checked={checked} onChange={setChecked} />;
+};
+Standard.args = { label: "Label Text" };
