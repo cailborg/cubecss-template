@@ -1,0 +1,106 @@
+.toggles [disabled] + label,
+.toggles [disabled]:hover + label {
+  color: rgba(var(--lp-colors-neutral-300), 1);
+}
+
+.toggles [type="checkbox"] + label {
+  display: block;
+  position: relative;
+  max-width: calc(100% - 2em);
+  height: 100%;
+}
+
+.toggles [type="checkbox"] + label::before,
+.toggles [type="checkbox"] + label::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  transition: all 0.25s ease;
+}
+
+.toggles [type="checkbox"] + label::before {
+  right: 0;
+  top: 0;
+  background: rgba(var(--lp-colors-neutral-300), 1);
+}
+
+.toggles [type="checkbox"] + label::after {
+  right: 0;
+  top: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  border: var(--lp-border-widths-thin) solid rgba(var(--lp-colors-neutral-50), 1);
+}
+
+.toggles [type="checkbox"]:checked + label::after {
+  border-color: rgba(var(--lp-colors-primary), 1);
+  color: white;
+  background: white;
+}
+.toggles [type="checkbox"]:checked + label::before {
+  background-color: rgba(var(--lp-colors-primary), 1);
+}
+
+.toggles [type="checkbox"][disabled] + label::before {
+  background-color: rgba(var(--lp-colors-neutral-300), 1);
+}
+
+.toggles [type="checkbox"][disabled] + label::before, .toggles [type="checkbox"][disabled] + label::after {
+  cursor: not-allowed;
+}
+
+/* Reduced motion */
+@media screen and (prefers-reduced-motion: reduce) {
+  .toggles [type="checkbox"] + label::before,
+  .toggles [type="checkbox"] + label::after {
+    transition: none;
+  }
+}
+
+/* Sizes */
+.toggles.small {
+  height: var(--lp-space-sm);
+}
+
+.toggles.small [type="checkbox"] + label::before {
+  border-radius: var(--lp-radii-lg);
+  width: 40px;
+}
+
+.toggles.small [type="checkbox"] + label::after {
+  width: 24px;
+  right: var(--lp-space-xs);
+}
+
+.toggles.small [type="checkbox"]:checked + label::after, .toggles.medium [type="checkbox"]:checked + label::after, .toggles.large [type="checkbox"]:checked + label::after {
+  right: 0;
+}
+
+.toggles.medium {
+  height: var(--lp-space-md);
+}
+
+.toggles.medium [type="checkbox"] + label::before {
+  border-radius: var(--lp-radii-xl);
+  width: 56px;
+}
+
+.toggles.medium [type="checkbox"] + label::after {
+  width: 32px;
+  border-width: var(--lp-border-widths-thick);
+  right: var(--lp-space-sm);
+}
+
+.toggles.large {
+  height: var(--lp-space-lg);
+}
+
+.toggles.large [type="checkbox"] + label::before {
+  border-radius: 32px;
+  width: 72px;
+}
+.toggles.large [type="checkbox"] + label::after {
+  width: 40px;
+  border-width: var(--lp-border-widths-thick);
+  right: var(--lp-space-md);
+}
