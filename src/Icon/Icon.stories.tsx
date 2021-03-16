@@ -17,7 +17,7 @@ export default {
 
 const Template: Story<IconProps> = (args) => <Icon {...args} />;
 
-export const Standard = Template.bind({});
-Standard.args = {
+export const Outlined = Template.bind({});
+Outlined.args = {
   name: "Cross",
 };

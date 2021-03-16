@@ -1,0 +1,116 @@
+.toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch {
+  margin: 0;
+  padding: 0;
+  border-radius: var(--lp-radii-lg);
+  position: relative;
+  background-color: rgba(var(--lp-colors-neutral-300), 1);
+  cursor: pointer;
+  transition: background-color ease-in-out var(--lp-durations-quick);
+  &.focus-ring {
+    box-shadow: 0 0 0 2px white, 0 0 0 6px dodgerblue;
+  }
+}
+
+.switch.small {
+  width: 40px;
+  height: 24px;
+  & > span:last-child {
+    width: 24px;
+    border-width: var(--lp-border-widths-thin);
+  }
+  &[aria-checked="true"] > span:last-child {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+}
+
+.switch.medium {
+  width: 56px;
+  height: 32px;
+  & > span:last-child {
+    width: 32px;
+  }
+  &[aria-checked="true"] > span:last-child {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+  }
+}
+
+.switch.large {
+  width: 72px;
+  height: 40px;
+  border-radius: 32px;
+  & > span:last-child {
+    width: 40px;
+  }
+  &[aria-checked="true"] > span:last-child {
+    -webkit-transform: translateX(32px);
+    -ms-transform: translateX(32px);
+    transform: translateX(32px);
+  }
+}
+
+.switch > * {
+  pointer-events: none;
+}
+
+.switch:focus {
+  outline-width: 0;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  -webkit-transition: var(--lp-durations-quick);
+  transition: var(--lp-durations-quick);
+  border-radius: 50%; 
+  border-width: var(--lp-border-widths-thick); 
+  border-color: rgba(var(--lp-colors-neutral-300), 1);
+}
+
+.disabledSlider {
+  @extend .slider;
+  background-color: rgba(var(--lp-colors-neutral-400),1);
+}
+
+.errorSlider {
+  @extend .slider;
+  background-color: rgba(var(--lp-colors-error-500), 1);
+}
+
+.checkedSlider {
+  @extend .slider;
+  background-color: white;
+  border-color: rgba(var(--lp-colors-primary), 1);
+  box-shadow: var(--lp-shadows-low)
+}
+
+.uncheckedSlider {
+  @extend .slider;
+  background-color: rgba(var(--lp-colors-neutral-50), 1);
+  border-color: rgba(var(--lp-colors-neutral-300), 1);
+}
+
+.switch[aria-checked="true"] {
+  background-color: rgba(var(--lp-colors-primary), 1);
+}
+
+.toggle label {
+  width: calc(100% - 56px - var(--lp-space-xs));
+  margin: 0;
+  text-align: left;
+}

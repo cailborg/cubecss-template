@@ -99,6 +99,9 @@
   &:disabled {
     background: rgba(var(--lp-colors-neutral-50), 1);
     color: rgba(var(--lp-colors-neutral-400), 1);
+    & svg {
+      fill: rgba(var(--lp-colors-neutral-400), 1);
+    };
   }
   &.focus-ring {
     box-shadow: 0 0 0 2px white, 0 0 0 6px dodgerblue;
