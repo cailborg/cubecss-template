@@ -10,5 +10,5 @@ export default {
 } as Meta;
 
 export const All: Story<TextProps> = (args) => <Text {...args}>{args.children}</Text>;
-All.args = { children: 'Example Text' };
+All.args = { children: 'Example Text', variant:"body1", tagName:"p", alignment: "left" };
 
