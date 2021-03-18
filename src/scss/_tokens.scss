@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 18 Mar 2021 02:32:26 GMT
+ * Generated on Thu, 18 Mar 2021 03:15:16 GMT
  */
 
 :root {
@@ -136,14 +136,14 @@
   --lp-letter-spacing-button-xs: 0;
   --lp-letter-spacing-link-md: 0;
   --lp-letter-spacing-link-sm: 0;
-  --lp-paragraph-spacing-heading-jumbo: 0;
-  --lp-paragraph-spacing-heading-xxxl: 0;
-  --lp-paragraph-spacing-heading-xxl: 0;
-  --lp-paragraph-spacing-heading-xl: 0;
-  --lp-paragraph-spacing-heading-lg: 0;
-  --lp-paragraph-spacing-heading-md: 0;
-  --lp-paragraph-spacing-heading-sm: 0;
-  --lp-paragraph-spacing-heading-xs: 0;
+  --lp-paragraph-spacing-heading-jumbo: 32px;
+  --lp-paragraph-spacing-heading-xxxl: 32px;
+  --lp-paragraph-spacing-heading-xxl: 16px;
+  --lp-paragraph-spacing-heading-xl: 16px;
+  --lp-paragraph-spacing-heading-lg: 12px;
+  --lp-paragraph-spacing-heading-md: 8px;
+  --lp-paragraph-spacing-heading-sm: 8px;
+  --lp-paragraph-spacing-heading-xs: 8px;
   --lp-paragraph-spacing-body-1: 8px;
   --lp-paragraph-spacing-body-1-bold: 8px;
   --lp-paragraph-spacing-body-2: 8px;
@@ -159,6 +159,29 @@
   --lp-paragraph-spacing-button-xs: 0;
   --lp-paragraph-spacing-link-md: 0;
   --lp-paragraph-spacing-link-sm: 0;
+  --lp-text-transform-heading-jumbo: none;
+  --lp-text-transform-heading-xxxl: none;
+  --lp-text-transform-heading-xxl: none;
+  --lp-text-transform-heading-xl: none;
+  --lp-text-transform-heading-lg: none;
+  --lp-text-transform-heading-md: none;
+  --lp-text-transform-heading-sm: none;
+  --lp-text-transform-heading-xs: none;
+  --lp-text-transform-body-1: none;
+  --lp-text-transform-body-1-bold: none;
+  --lp-text-transform-body-2: none;
+  --lp-text-transform-body-2-bold: none;
+  --lp-text-transform-body-3: none;
+  --lp-text-transform-body-3-bold: none;
+  --lp-text-transform-caption: none;
+  --lp-text-transform-caption-bold: none;
+  --lp-text-transform-overline: UPPERcase;
+  --lp-text-transform-button-lg: none;
+  --lp-text-transform-button-md: none;
+  --lp-text-transform-button-sm: none;
+  --lp-text-transform-button-xs: none;
+  --lp-text-transform-link-md: none;
+  --lp-text-transform-link-sm: none;
   --lp-space-tiny: 4px;
   --lp-space-xxxs: 8px;
   --lp-space-xxs: 12px;
