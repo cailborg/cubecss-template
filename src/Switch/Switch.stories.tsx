@@ -11,4 +11,3 @@ export const Standard = (args: any) => {
     const [checked, setChecked] = useState(false);
     return <Switch {...args} checked={checked} onChange={setChecked} />;
 };
-Standard.args = { label: "Label Text" };
