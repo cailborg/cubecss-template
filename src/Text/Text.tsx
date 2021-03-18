@@ -17,29 +17,44 @@ const getVariant = (variant: TextProps["variant"]) => {
           return `font-family: var(--lp-fonts-body-1);
           font-size: var(--lp-font-size-body-1);
           line-height: var(--lp-line-height-body-1);
-          letter-spacing: var(--lp-letter-spacing-body-1)`;
+          letter-spacing: var(--lp-letter-spacing-body-1);
+          & + p {
+              margin-top: var(--lp-paragraph-spacing-body-1);
+          }`;
       case "body2":
           return `font-family: var(--lp-fonts-body-2);
           font-size: var(--lp-font-size-body-2);
           line-height: var(--lp-line-height-body-2);
-          letter-spacing: var(--lp-letter-spacing-body-2);`
+          letter-spacing: var(--lp-letter-spacing-body-2);
+          + p {
+            margin-top: var(--lp-paragraph-spacing-body-2);
+        }`
       case "body3":
           return `font-family: var(--lp-fonts-body-3);
           font-size: var(--lp-font-size-body-3);
           line-height: var(--lp-line-height-body-3);
-          letter-spacing: var(--lp-letter-spacing-body-3);`;
+          letter-spacing: var(--lp-letter-spacing-body-3);
+          + p {
+            margin-top: var(--lp-paragraph-spacing-body-3);
+        }`;
       case "caption":
           return `font-family: var(--lp-fonts-caption);
           font-size: var(--lp-font-size-caption);
           line-height: var(--lp-line-height-caption);
-          letter-spacing: var(--lp-letter-spacing-caption);`;
+          letter-spacing: var(--lp-letter-spacing-caption);
+          + p {
+            margin-top: var(--lp-paragraph-spacing-caption);
+        }`;
       case "overline":
           return `font-family: var(--lp-fonts-overline);
           font-size: var(--lp-font-size-overline);
-
           line-height: var(--lp-line-height-overline);
           letter-spacing: var(--lp-letter-spacing-overline);
-          text-transform: uppercase`;
+          text-transform: uppercase;
+          + p {
+            margin-top: var(--lp-paragraph-spacing-overline);
+        }
+          `;
       default:
           return `font-family: inherit;
           font-size: inherit;
@@ -62,6 +77,7 @@ export const Text: React.FC<TextProps> = ({
         text-align: ${alignment ?? "inherit"};
         ${getVariant(variant)};
         font-weight: ${isEmphasised ? '700' : '400'};
+
     `;
     return (
         <TextTag

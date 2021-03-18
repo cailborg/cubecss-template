@@ -149,6 +149,12 @@ const extractStyleProperties = (layer) => {
                         },
                     ])
                 ),
+                paragraphSpacing: Object.fromEntries(
+                    layer.children.map((type) => [
+                        [type.name],
+                        { value: appendUnit(type.style.paragraphSpacing, "px") },
+                    ])
+                ),
             };
         case "radii":
             return {
