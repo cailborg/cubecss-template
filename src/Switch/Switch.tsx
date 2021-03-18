@@ -34,7 +34,7 @@ export const Switch: React.FC<SwitchProps> = ({
 
     return (
         <div aria-live="polite" aria-atomic="true" className="toggle">
-            {label && <label>{label}</label>}
+            {label && <label className="font-body text-neutral-800 font-normal">{label}</label>}
             <FocusRing focusRingClass="focus-ring">
                 <button
                     type="button"

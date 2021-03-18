@@ -5,7 +5,7 @@
     & > .MuiFormLabel-root {
         color: rgba(var(--lp-colors-neutral-600), 1);
         font-size: var(--lp-font-size-body-2);
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: var(--lp-fonts-body-1);
         &.Mui-disabled {
             color: rgba(var(--lp-colors-neutral-400), 1);
         }

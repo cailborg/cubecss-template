@@ -149,6 +149,18 @@ const extractStyleProperties = (layer) => {
                         },
                     ])
                 ),
+                paragraphSpacing: Object.fromEntries(
+                    layer.children.map((type) => [
+                        [type.name],
+                        { value: appendUnit(type.style.paragraphSpacing, "px") },
+                    ])
+                ),
+                textTransform: Object.fromEntries(
+                    layer.children.map((type) => [
+                        [type.name],
+                        { value: type.style.textCase ? `${type.style.textCase}case` : "none" },
+                    ])
+                ),
             };
         case "radii":
             return {

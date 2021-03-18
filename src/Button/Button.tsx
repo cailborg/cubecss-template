@@ -26,7 +26,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <FocusRing focusRingClass="focus-ring">
       <button
-        className={`button flex justify-center items-center min-w-xs rounded-sm transition-all cursor-pointer box-border ${size}` }
+        className={`button flex justify-center items-center min-w-xs rounded-sm transition-all cursor-pointer box-border font-button ${size}` }
         data-variant={variant}
         disabled={disabled}
         type={type}
