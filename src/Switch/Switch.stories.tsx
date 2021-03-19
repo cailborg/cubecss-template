@@ -5,10 +5,15 @@ import { Switch } from "./Switch";
 export default {
     title: "Components/Switch",
     component: Switch,
+    argTypes:{
+      checked:{
+        control:false
+      }
+    }
 } as Meta;
 
 export const Standard = (args: any) => {
     const [checked, setChecked] = useState(false);
     return <Switch {...args} checked={checked} onChange={setChecked} />;
 };
-Standard.args = { label: "Label Text" };
+// Standard.args = { label: "Label Text" };
