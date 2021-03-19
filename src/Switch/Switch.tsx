@@ -1,7 +1,7 @@
 import React from "react";
 // import "./Switch.scss";
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
+import { keyframes, css } from "@emotion/core";
 import { FocusRing } from "@react-aria/focus";
 import { Text } from "../Text/Text";
 
@@ -13,6 +13,26 @@ export interface SwitchProps {
     trackingId?: string;
     size: "large" | "medium" | "small";
 }
+
+const slideRight = (val:number) => keyframes`
+from {
+    transform: translateX(0px);
+}
+
+to {
+    transform: translateX(${val}px);
+}
+`;
+const slideLeft  = (val:number) => keyframes`
+from {
+    transform: translateX(${val}px);
+}
+
+to {
+    transform: translateX(0px);
+}
+`;
+
 const getSize = (size: string) => {
     switch (size) {
         case "small":
@@ -26,6 +46,13 @@ const getSize = (size: string) => {
               -webkit-transform: translateX(16px);
               -ms-transform: translateX(16px);
               transform: translateX(16px);
+              animation: ${slideRight(16)} var(--lp-durations-quick) ease-in;
+            }
+            &[aria-checked="false"] > span:last-child {
+              -webkit-transform: translateX(0px);
+              -ms-transform: translateX(0px);
+              transform: translateX(0px);
+              animation: ${slideLeft(16)} var(--lp-durations-quick) ease-in-out;
             }`;
         case "medium":
             return `width: 56px;
@@ -37,9 +64,16 @@ const getSize = (size: string) => {
               -webkit-transform: translateX(24px);
               -ms-transform: translateX(24px);
               transform: translateX(24px);
+              animation: ${slideRight(24)} var(--lp-durations-quick) ease-in;
+            }
+            &[aria-checked="false"] > span:last-child {
+              -webkit-transform: translateX(0px);
+              -ms-transform: translateX(0px);
+              transform: translateX(0px);
+              animation: ${slideLeft(24)} var(--lp-durations-quick) ease-in-out;
             }`;
         case "large":
-            return `width: 72px;
+            return css`width: 72px;
             height: 40px;
             border-radius: 32px;
             & > span:last-child {
@@ -49,9 +83,16 @@ const getSize = (size: string) => {
               -webkit-transform: translateX(32px);
               -ms-transform: translateX(32px);
               transform: translateX(32px);
+              animation: ${slideRight(32)} var(--lp-durations-quick) ease-in;
+            }
+            &[aria-checked="false"] > span:last-child {
+              -webkit-transform: translateX(0px);
+              -ms-transform: translateX(0px);
+              transform: translateX(0px);
+              animation: ${slideLeft(32)} var(--lp-durations-quick) ease-in-out;
             }`;
         default:
-            return `width: 72px;
+            return css`width: 72px;
             height: 40px;
             border-radius: 32px;
             & > span:last-child {
@@ -61,6 +102,13 @@ const getSize = (size: string) => {
               -webkit-transform: translateX(32px);
               -ms-transform: translateX(32px);
               transform: translateX(32px);
+              animation: ${slideRight(32)} var(--lp-durations-quick) ease-in-out;
+            }
+            &[aria-checked="false"] > span:last-child {
+              -webkit-transform: translateX(0px);
+              -ms-transform: translateX(0px);
+              transform: translateX(0px);
+              animation: ${slideLeft(32)} var(--lp-durations-quick) ease-in-out;
             }`;
     }
 };
@@ -125,7 +173,7 @@ export const Switch: React.FC<SwitchProps> = ({
         border-radius: var(--lp-radii-lg);
         position: relative;
         cursor: pointer;
-        animation: ${fadeOut} var(--lp-durations-quick) ease-in-out ;
+        transition: all 5s ease;
         &.focus-ring {
             box-shadow: 0 0 0 2px white, 0 0 0 6px dodgerblue;
         }
