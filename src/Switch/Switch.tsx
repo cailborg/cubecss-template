@@ -1,5 +1,4 @@
 import React from "react";
-// import "./Switch.scss";
 import styled from "@emotion/styled";
 import { FocusRing } from "@react-aria/focus";
 import { Text } from "../Text/Text";
@@ -64,6 +63,16 @@ const getSize = (size: string) => {
     }
 };
 
+const Toggle = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+& label {
+    width: calc(100% - 56px - var(--lp-space-lg));
+}
+`;
+
 const getStatus = (status: string) => {
     switch (status) {
         case "unchecked":
@@ -89,17 +98,7 @@ export const Switch: React.FC<SwitchProps> = ({
     trackingId,
     size = "large",
 }) => {
-    const Toggle = styled.div`
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        & label {
-            width: calc(100% - 56px - var(--lp-space-xs));
-            margin: 0;
-            text-align: left;
-        }
-    `;
+
     const Switch = styled.button`
         margin: 0;
         padding: 0;
@@ -144,11 +143,12 @@ export const Switch: React.FC<SwitchProps> = ({
         left: 0;
         height: 100%;
         -webkit-transition: var(--lp-durations-quick);
-        transition: var(--lp-durations-quick);
+        transition: all ease-in-out var(--lp-durations-quick);
         border-radius: 50%;
         border-width: var(--lp-border-widths-thick);
         border-color: rgba(var(--lp-colors-neutral-900), 1);
-        ${getStatus(status)};
+        ${getStatus(status)}
+        
     `;
 
     return (

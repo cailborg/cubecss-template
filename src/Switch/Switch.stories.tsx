@@ -5,6 +5,11 @@ import { Switch } from "./Switch";
 export default {
     title: "Components/Switch",
     component: Switch,
+    argTypes:{
+        checked:{
+          control:false
+        }
+      }
 } as Meta;
 
 export const Standard = (args: any) => {
