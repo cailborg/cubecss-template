@@ -1,6 +1,7 @@
 import React from "react";
 // import "./Switch.scss";
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/core";
 import { FocusRing } from "@react-aria/focus";
 import { Text } from "../Text/Text";
 
@@ -100,14 +101,31 @@ export const Switch: React.FC<SwitchProps> = ({
             text-align: left;
         }
     `;
+    const fadeIn = keyframes`
+        from {
+            background-color: rgba(var(--lp-colors-neutral-300), 1);
+        }
+
+        to {
+            background-color: rgba(var(--lp-colors-primary), 1);
+        }
+        `;
+    const fadeOut = keyframes`
+    from {
+        background-color: rgba(var(--lp-colors-primary), 1);
+    }
+
+    to {
+        background-color: rgba(var(--lp-colors-neutral-300), 1);
+    }
+    `;
     const Switch = styled.button`
         margin: 0;
         padding: 0;
         border-radius: var(--lp-radii-lg);
         position: relative;
-        background-color: rgba(var(--lp-colors-neutral-300), 1);
         cursor: pointer;
-        transition: background-color ease-in-out var(--lp-durations-quick);
+        animation: ${fadeOut} var(--lp-durations-quick) ease-in-out ;
         &.focus-ring {
             box-shadow: 0 0 0 2px white, 0 0 0 6px dodgerblue;
         }
@@ -118,7 +136,12 @@ export const Switch: React.FC<SwitchProps> = ({
             outline-width: 0;
         }
         &[aria-checked="true"] {
+            animation: ${fadeIn} var(--lp-durations-quick) ease-in-out ;
             background-color: rgba(var(--lp-colors-primary), 1);
+        }
+        &[aria-checked="false"] {
+            animation: ${fadeOut} var(--lp-durations-quick) ease-in-out ;
+            background-color: rgba(var(--lp-colors-neutral-300), 1);
         }
         ${getSize(size)};
     `;
