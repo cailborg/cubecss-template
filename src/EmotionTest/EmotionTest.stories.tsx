@@ -10,4 +10,4 @@ export default {
 } as Meta;
 
 export const Main: Story<TestProps> = (args) => <EmotionTest {...args}>{args.children}</EmotionTest>;
-Main.args = { children: 'Example Text', variant:"body-1"};
+Main.args = { label: 'Example Text', variant:"body-1", id:"someid"};
