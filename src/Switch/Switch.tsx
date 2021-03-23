@@ -40,11 +40,11 @@ const getMove = (size: string) => {
         case "small":
             return `calc(var(--lp-space-xs) - 2px)`;
         case "medium":
-            return `calc(var(--lp-space-sm) - 4px)`;
+            return `calc(var(--lp-space-sm) - 2px)`;
         case "large":
-            return `calc(var(--lp-space-md) - 6px)`;
+            return `calc(var(--lp-space-md) - 2px)`;
         default:
-            return `calc(var(--lp-space-sm) - 4px)`;
+            return `calc(var(--lp-space-sm) - 2px)`;
     }
 };
 const StyledContainer = styled.div`
@@ -74,7 +74,7 @@ const StyledLabel = styled.label<{ size: string }>`
         background-color: rgba(var(--lp-colors-neutral-300), 1);
         -webkit-transition: var(--lp-durations-quick);
         transition: transform var(--lp-durations-quick) ease-in-out, background-color var(--lp-durations-quick) ease-in-out;
-        border-radius: 24px;
+        border-radius: var(--lp-radii-xl);
     }
     & span:before {
         position: absolute;
@@ -88,7 +88,7 @@ const StyledLabel = styled.label<{ size: string }>`
         background-color: rgba(var(--lp-colors-neutral-50), 1);
         -webkit-transition: var(--lp-durations-quick);
         transition: transform var(--lp-durations-quick) ease-in-out, background-color var(--lp-durations-quick) ease-in-out;
-        border-radius: 24px;
+        border-radius: var(--lp-radii-xl);
     }
     & input:checked + span {
         background-color: rgba(var(--lp-colors-primary), 1);
