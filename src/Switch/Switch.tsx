@@ -95,7 +95,7 @@ const StyledLabel = styled.label<{ size: string }>`
     }
 
     & input:focus.focus-ring + span {
-        box-shadow: 0 0 0 2px white, 0 0 0 6px dodgerblue;
+        box-shadow: var(--lp-focus-ring);
     }
 
     & input:checked + span:before {

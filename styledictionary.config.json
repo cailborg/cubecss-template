@@ -6,7 +6,7 @@
             "files": [
                 {
                     "format": "css/variables",
-                    "destination": "src/scss/_tokens.scss"
+                    "destination": "src/_scss/_tokens.scss"
                 }
             ],
             "prefix": "lp"
