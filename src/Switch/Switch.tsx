@@ -1,178 +1,133 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { FocusRing } from "@react-aria/focus";
 import { Text } from "../Text/Text";
+import { FocusRing } from "@react-aria/focus";
 
 export interface SwitchProps {
-    checked: boolean;
-    onChange: (value: boolean) => void;
-    disabled?: boolean;
-    label?: string;
-    trackingId?: string;
     size: "large" | "medium" | "small";
+    label?: string;
+    id?: string;
 }
+
 const getSize = (size: string) => {
     switch (size) {
         case "small":
-            return `width: 40px;
-            height: 24px;
-            & > span:last-child {
-              width: 24px;
-              border-width: var(--lp-border-widths-thin);
-            }
-            &[aria-checked="true"] > span:last-child {
-              -webkit-transform: translateX(16px);
-              -ms-transform: translateX(16px);
-              transform: translateX(16px);
-            }`;
+            return `var(--lp-space-sm)`;
         case "medium":
-            return `width: 56px;
-            height: 32px;
-            & > span:last-child {
-              width: 32px;
-            }
-            &[aria-checked="true"] > span:last-child {
-              -webkit-transform: translateX(24px);
-              -ms-transform: translateX(24px);
-              transform: translateX(24px);
-            }`;
+            return `var(--lp-space-md)`;
         case "large":
-            return `width: 72px;
-            height: 40px;
-            border-radius: 32px;
-            & > span:last-child {
-              width: 40px;
-            }
-            &[aria-checked="true"] > span:last-child {
-              -webkit-transform: translateX(32px);
-              -ms-transform: translateX(32px);
-              transform: translateX(32px);
-            }`;
+            return `var(--lp-space-lg)`;
         default:
-            return `width: 72px;
-            height: 40px;
-            border-radius: 32px;
-            & > span:last-child {
-              width: 40px;
-            }
-            &[aria-checked="true"] > span:last-child {
-              -webkit-transform: translateX(32px);
-              -ms-transform: translateX(32px);
-              transform: translateX(32px);
-            }`;
+            return `var(--lp-space-md)`;
     }
 };
 
-const Toggle = styled.div`
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-& label {
-    width: calc(100% - 56px - var(--lp-space-lg));
-}
+const getWidth = (size: string) => {
+    switch (size) {
+        case "small":
+            return `var(--lp-space-lg)`;
+        case "medium":
+            return `var(--lp-space-xxl)`;
+        case "large":
+            return `calc(var(--lp-space-jumbo) - var(--lp-space-xxxs))`;
+        default:
+            return `var(--lp-space-xxl)`;
+    }
+};
+const getMove = (size: string) => {
+    switch (size) {
+        case "small":
+            return `calc(var(--lp-space-xs) - 2px)`;
+        case "medium":
+            return `calc(var(--lp-space-sm) - 4px)`;
+        case "large":
+            return `var(--lp-space-sm)`;
+        default:
+            return `calc(var(--lp-space-sm) - 4px)`;
+    }
+};
+const StyledContainer = styled.div`
+    display: flex;
+    align-items: center;
 `;
-
-const getStatus = (status: string) => {
-    switch (status) {
-        case "unchecked":
-            return `background-color: rgba(var(--lp-colors-neutral-50), 1);
-            border-color: rgba(var(--lp-colors-neutral-300), 1);`;
-        case "checked":
-            return `background-color: white;
-            border-color: rgba(var(--lp-colors-primary), 1);
-            box-shadow: var(--lp-shadows-low);`;
-        case "disabled":
-            return `background-color: rgba(var(--lp-colors-neutral-400),1);`;
-        default:
-            return `background-color: rgba(var(--lp-colors-neutral-50), 1);
-            border-color: rgba(var(--lp-colors-neutral-300), 1);`;
+const StyledDiv = styled.div<{ size: string }>`
+    width: calc(100% - ${(props) => getSize(props.size)});
+`;
+const StyledLabel = styled.label<{ size: string }>`
+    position: relative;
+    display: inline-block;
+    width: ${(props) => getWidth(props.size)};
+    height: ${(props) => getSize(props.size)};
+    & input {
+        opacity: 0;
+        width: 0;
+        height: 0;
     }
-};
-
-export const Switch: React.FC<SwitchProps> = ({
-    checked,
-    onChange,
-    disabled,
-    label,
-    trackingId,
-    size = "large",
-}) => {
-
-    const Switch = styled.button`
-        margin: 0;
-        padding: 0;
-        border-radius: var(--lp-radii-lg);
-        position: relative;
-        background-color: rgba(var(--lp-colors-neutral-300), 1);
-        cursor: pointer;
-        transition: background-color ease-in-out var(--lp-durations-quick);
-        &.focus-ring {
-            box-shadow: 0 0 0 2px white, 0 0 0 6px dodgerblue;
-        }
-        & > * {
-            pointer-events: none;
-        }
-        &:focus {
-            outline-width: 0;
-        }
-        &[aria-checked="true"] {
-            background-color: rgba(var(--lp-colors-primary), 1);
-        }
-        ${getSize(size)};
-    `;
-    
-    let status;
-    switch (true) {
-        case disabled:
-            status = "disabled";
-            break;
-        case checked:
-            status = "checked";
-            break;
-        default:
-            status = "unchecked";
-            break;
-    }
-    const Slider = styled.span`
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    & span {
         position: absolute;
+        cursor: pointer;
         top: 0;
         left: 0;
-        height: 100%;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(var(--lp-colors-neutral-300), 1);
         -webkit-transition: var(--lp-durations-quick);
-        transition: all ease-in-out var(--lp-durations-quick);
-        border-radius: 50%;
-        border-width: var(--lp-border-widths-thick);
-        border-color: rgba(var(--lp-colors-neutral-900), 1);
-        ${getStatus(status)}
-        
-    `;
+        transition: all var(--lp-durations-quick) ease-in-out;
+        border-radius: 24px;
+    }
+    & span:before {
+        position: absolute;
+        content: "";
+        box-sizing: border-box;
+        border: rgba(var(--lp-colors-neutral-300), 1) var(--lp-border-widths-thick) var(--lp-border-styles-solid);
+        height: ${(props) => getSize(props.size)};
+        width: ${(props) => getSize(props.size)};
+        left: 0px;
+        bottom: 0px;
+        background-color: rgba(var(--lp-colors-neutral-50), 1);
+        -webkit-transition: var(--lp-durations-quick);
+        transition: all var(--lp-durations-quick) ease-in-out;
+        border-radius: 24px;
+    }
+    & input:checked + span {
+        background-color: rgba(var(--lp-colors-primary), 1);
+    }
 
+    & input:focus.focus-ring + span {
+        box-shadow: 0 0 0 2px white, 0 0 0 6px dodgerblue;
+    }
+
+    & input:checked + span:before {
+        background-color: white;
+        border-color: rgba(var(--lp-colors-primary), 1);
+        -webkit-transform: translateX(
+            ${(props) => getMove(props.size)}
+        );
+        -ms-transform: translateX(
+            ${(props) => getMove(props.size)}
+        );
+        transform: translateX(${(props) => getMove(props.size)});
+    }
+`;
+
+export const Switch: React.FC<SwitchProps> = ({
+    size,
+    label,
+    id,
+}) => {
     return (
-        <Toggle aria-live="polite" aria-atomic="true">
-            {label && (
-                <label>
-                    <Text variant="body-2" className="text-neutral-800">
-                        {label}
-                    </Text>
-                </label>
-            )}
-            <FocusRing focusRingClass="focus-ring">
-                <Switch
-                    type="button"
-                    role="switch"
-                    aria-checked={!disabled && checked}
-                    onClick={() => onChange(!checked)}
-                    disabled={disabled}
-                    data-tracking-id={trackingId}
-                >
-                    <span className="visually-hidden">{status}</span>
-                    <Slider></Slider>
-                </Switch>
-            </FocusRing>
-        </Toggle>
+        <StyledContainer>
+            <StyledDiv size={size}>
+                <Text id={id} variant="body-2" className="text-neutral-800">
+                    {label}
+                </Text>
+            </StyledDiv>
+            <StyledLabel size={size}>
+                <FocusRing focusRingClass="focus-ring">
+                    <input type="checkbox" aria-labelledby={id} />
+                </FocusRing>
+                <span></span>
+            </StyledLabel>
+        </StyledContainer>
     );
 };

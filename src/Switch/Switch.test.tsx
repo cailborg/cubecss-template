@@ -1,9 +1,8 @@
-import React , { useState }from "react";
+import React from "react";
 import { Switch } from "./Switch";
 import renderer from "react-test-renderer";
 
 it("renders correctly", () => {
-  const [checked, setChecked] = useState(false);
-  const tree = renderer.create(<Switch checked={checked} size="large" onChange={setChecked}></Switch>).toJSON();
+  const tree = renderer.create(<Switch size="medium" label="someText"></Switch>).toJSON();
   expect(tree).toMatchSnapshot();
 });
