@@ -2,10 +2,11 @@
 
 exports[`renders correctly 1`] = `
 <button
-  className="button flex justify-center items-center min-w-xs rounded-sm transition-all cursor-pointer box-border font-button large"
+  className="button flex justify-center items-center min-w-xs rounded-sm transition-all cursor-pointer box-border font-button large css-15bcg50"
   data-variant="primary"
   onBlur={[Function]}
   onFocus={[Function]}
+  size="large"
 >
   Hello
 </button>
