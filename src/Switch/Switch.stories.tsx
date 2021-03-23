@@ -10,4 +10,4 @@ export default {
 } as Meta;
 
 export const Main: Story<SwitchProps> = (args) => <Switch {...args}></Switch>;
-Main.args = { label: 'Example Text', size:"medium", id:"someid"};
+Main.args = { label: 'Example Text', size:"medium", id:"someid", className:"text-neutral-600"};
