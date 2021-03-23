@@ -1,0 +1,179 @@
+@font-face {
+    font-family: "Geograph";
+    font-weight: 400; /* Regular */
+    font-style: normal;
+    src: url("./geograph-web-regular.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-regular.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-regular.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-regular.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-Regular.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 500; /* Medium */
+    font-style: normal;
+    src: url("./geograph-web-medium.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-medium.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-medium.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-medium.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-Medium.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    src: url("./geograph-web-bold.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-bold.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-bold.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-bold.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-Bold.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 900; /* Black */
+    font-style: normal;
+    src: url("./geograph-web-black.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-black.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-black.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-black.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-Black.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 300; /* Light */
+    font-style: normal;
+    src: url("./geograph-web-light.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-light.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-light.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-light.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-Light.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 100; /* Thin */
+    font-style: normal;
+    src: url("./geograph-web-thin.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-thin.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-thin.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-thin.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-Thin.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 400; /* Regular */
+    font-style: italic;
+    src: url("./geograph-web-regular-italic.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-regular-italic.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-regular-italic.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-regular-italic.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-RegularItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 500; /* Medium */
+    font-style: italic;
+    src: url("./geograph-web-medium-italic.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-medium-italic.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-medium-italic.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-medium-italic.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-MediumItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 700; /* Bold */
+    font-style: italic;
+    src: url("./geograph-web-bold-italic.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-bold-italic.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-bold-italic.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-bold-italic.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-BoldItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 900; /* Black */
+    font-style: italic;
+    src: url("./geograph-web-black-italic.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-black-italic.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-black-italic.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-black-italic.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-BlackItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 300; /* Light */
+    font-style: normal;
+    src: url("./geograph-web-light-italic.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-light-italic.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-light-italic.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-light-italic.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-LightItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
+
+@font-face {
+    font-family: "Geograph";
+    font-weight: 100; /* Thin */
+    font-style: italic;
+    src: url("./geograph-web-thin-italic.eot"); /* IE9 Compat Modes */
+    src: url("./geograph-web-thin-italic.eot?#iefix") format("embedded-opentype")
+            /* IE6-IE8 */,
+        url("./geograph-web-thin-italic.woff2") format("woff2")
+            /* Super Modern Browsers */,
+        url("./geograph-web-thin-italic.woff") format("woff")
+            /* Pretty Modern Browsers */,
+        url("./GeographApp-ThinItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+}
