@@ -27,6 +27,7 @@ const nonFigmaDefinedStyleProperties = {
         top: { value: 9999 },
         bottom: { value: -9999 },
     },
+    focusRing: { value: "0 0 0 2px white, 0 0 0 6px dodgerblue" },
 };
 
 const checkNull = (variable) => {
@@ -38,18 +39,6 @@ const checkNull = (variable) => {
 };
 
 const appendUnit = (value, unit) => (!value ? "0" : `${value}${unit}`);
-
-// function RGBToHex(r, g, b) {
-//     r = r.toString(16);
-//     g = g.toString(16);
-//     b = b.toString(16);
-
-//     if (r.length == 1) r = "0" + r;
-//     if (g.length == 1) g = "0" + g;
-//     if (b.length == 1) b = "0" + b;
-
-//     return "#" + r + g + b;
-// }
 
 const extractStyleProperties = (layer) => {
     switch (layer.name) {
