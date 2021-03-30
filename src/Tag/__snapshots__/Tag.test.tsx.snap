@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<span
+  aria-live="polite"
+  className="css-ul6w35"
+  data-variant="neutral"
+  size="large"
+>
+  hello
+</span>
+`;
