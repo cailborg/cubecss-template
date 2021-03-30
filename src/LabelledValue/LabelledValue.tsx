@@ -6,7 +6,7 @@ type LabelledValueSizeType = "large" | "small";
 
 export interface LabelledValueProps {
     variant: LabelledValueVariantType;
-    size: LabelledValueSizeType;
+    size?: LabelledValueSizeType;
     label: String;
     value: String;
     description?: String;
@@ -75,7 +75,7 @@ const SecondaryValue = styled.span`
 
 export const LabelledValue: React.FC<LabelledValueProps> = ({
     variant,
-    size,
+    size = "small",
     label,
     value,
     description,

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  aria-atomic="true"
+  aria-live="polite"
+  className="css-1ohf0ui"
+>
+  <span
+    className="css-di4ebj"
+    id="1617072796729"
+  >
+    Label
+  </span>
+  <span
+    aria-labelledby="1617072796729"
+    className="css-112hi8s"
+    size="small"
+  >
+    value
+  </span>
+  <span
+    className="css-di4ebj"
+  >
+    description
+  </span>
+</div>
+`;
