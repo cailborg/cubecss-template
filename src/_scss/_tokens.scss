@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 23 Mar 2021 03:45:25 GMT
+ * Generated on Tue, 30 Mar 2021 04:33:54 GMT
  */
 
 :root {
@@ -37,7 +37,9 @@
   --lp-fonts-body-3: Geograph, san-serif;
   --lp-fonts-body-3-bold: Geograph, san-serif;
   --lp-fonts-caption: Geograph, san-serif;
+  --lp-fonts-legal: Geograph, san-serif;
   --lp-fonts-caption-bold: Geograph, san-serif;
+  --lp-fonts-legal-bold: Geograph, san-serif;
   --lp-fonts-overline: Geograph, san-serif;
   --lp-fonts-button-lg: Geograph, san-serif;
   --lp-fonts-button-md: Geograph, san-serif;
@@ -60,7 +62,9 @@
   --lp-font-size-body-3: 0.875rem;
   --lp-font-size-body-3-bold: 0.875rem;
   --lp-font-size-caption: 0.75rem;
+  --lp-font-size-legal: 0.625rem;
   --lp-font-size-caption-bold: 0.75rem;
+  --lp-font-size-legal-bold: 0.625rem;
   --lp-font-size-overline: 0.625rem;
   --lp-font-size-button-lg: 1.25rem;
   --lp-font-size-button-md: 1rem;
@@ -83,7 +87,9 @@
   --lp-font-weight-body-3: 400;
   --lp-font-weight-body-3-bold: 700;
   --lp-font-weight-caption: 400;
+  --lp-font-weight-legal: 400;
   --lp-font-weight-caption-bold: 700;
+  --lp-font-weight-legal-bold: 700;
   --lp-font-weight-overline: 400;
   --lp-font-weight-button-lg: 500;
   --lp-font-weight-button-md: 500;
@@ -92,7 +98,7 @@
   --lp-font-weight-link-md: 400;
   --lp-font-weight-link-sm: 400;
   --lp-line-height-heading-jumbo: 6rem;
-  --lp-line-height-heading-xxxl: 5rem;
+  --lp-line-height-heading-xxxl: 5.25rem;
   --lp-line-height-heading-xxl: 4.5rem;
   --lp-line-height-heading-xl: 3.5rem;
   --lp-line-height-heading-lg: 2.25rem;
@@ -106,7 +112,9 @@
   --lp-line-height-body-3: 1.25rem;
   --lp-line-height-body-3-bold: 1.25rem;
   --lp-line-height-caption: 1rem;
+  --lp-line-height-legal: 0.875rem;
   --lp-line-height-caption-bold: 1rem;
+  --lp-line-height-legal-bold: 0.875rem;
   --lp-line-height-overline: 1rem;
   --lp-line-height-button-lg: 1.5rem;
   --lp-line-height-button-md: 1.25rem;
@@ -129,7 +137,9 @@
   --lp-letter-spacing-body-3: 0.009375rem;
   --lp-letter-spacing-body-3-bold: 0.009375rem;
   --lp-letter-spacing-caption: 0.03125rem;
+  --lp-letter-spacing-legal: 0.015625rem;
   --lp-letter-spacing-caption-bold: 0.03125rem;
+  --lp-letter-spacing-legal-bold: 0.015625rem;
   --lp-letter-spacing-overline: 0.125rem;
   --lp-letter-spacing-button-lg: 0;
   --lp-letter-spacing-button-md: 0;
@@ -142,7 +152,7 @@
   --lp-paragraph-spacing-heading-xxl: 16px;
   --lp-paragraph-spacing-heading-xl: 16px;
   --lp-paragraph-spacing-heading-lg: 12px;
-  --lp-paragraph-spacing-heading-md: 8px;
+  --lp-paragraph-spacing-heading-md: 12px;
   --lp-paragraph-spacing-heading-sm: 8px;
   --lp-paragraph-spacing-heading-xs: 8px;
   --lp-paragraph-spacing-body-1: 8px;
@@ -152,7 +162,9 @@
   --lp-paragraph-spacing-body-3: 8px;
   --lp-paragraph-spacing-body-3-bold: 8px;
   --lp-paragraph-spacing-caption: 8px;
+  --lp-paragraph-spacing-legal: 8px;
   --lp-paragraph-spacing-caption-bold: 8px;
+  --lp-paragraph-spacing-legal-bold: 8px;
   --lp-paragraph-spacing-overline: 0;
   --lp-paragraph-spacing-button-lg: 0;
   --lp-paragraph-spacing-button-md: 0;
@@ -175,7 +187,9 @@
   --lp-text-transform-body-3: none;
   --lp-text-transform-body-3-bold: none;
   --lp-text-transform-caption: none;
+  --lp-text-transform-legal: none;
   --lp-text-transform-caption-bold: none;
+  --lp-text-transform-legal-bold: none;
   --lp-text-transform-overline: UPPERcase;
   --lp-text-transform-button-lg: none;
   --lp-text-transform-button-md: none;
