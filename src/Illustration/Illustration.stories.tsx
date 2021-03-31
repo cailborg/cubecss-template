@@ -4,12 +4,10 @@ import { Illustration, IllustrationProps } from "./Illustration";
 export default {
   title: "Components/Illustration",
   component: Illustration,
-  argTypes: {
-    label: { control: "text" },
-    value: { control: "text" },
-    description: { control: "text" },
-    secondaryValue: { control: "text" },
-  }
+  // argTypes: {
+  //   title: { control: "text" },
+  //   value: { control: "text" },
+  // }
 } as Meta;
 
 export const Horizontal: Story<IllustrationProps> = (args) => <Illustration {...args}></Illustration>;
