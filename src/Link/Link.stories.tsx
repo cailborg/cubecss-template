@@ -11,8 +11,8 @@ export default {
 } as Meta;
 
 export const Standard: Story<LinkProps> = (args) => <Link {...args}></Link>;
-Standard.args = { children: 'Example Text'};
+Standard.args = { children: 'Example Text', size: "medium", target: "_self", inline: true };
 
 
-export const Inline: Story<LinkProps> = (args) => <Text variant="body-1" className="text-sunrise-700"><Link inline={true} {...args}></Link></Text>;
-Inline.args = { children: 'Example Text'};
+export const Inline: Story<LinkProps> = (args) => <Text variant="body-1" className="text-sunrise-700"><Link {...args}></Link></Text>;
+Inline.args = { children: 'Example Text', size: "medium", target: "_self", inline: true};
