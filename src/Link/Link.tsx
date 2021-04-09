@@ -94,6 +94,7 @@ export class Link extends React.Component<LinkProps> {
     };
 
     render() {
+        
         const {
             ref,
             href = "#",
@@ -102,6 +103,7 @@ export class Link extends React.Component<LinkProps> {
             children,
             onClick,
             inline = false,
+            size,
             ...other
         } = this.props;
 
@@ -121,6 +123,7 @@ export class Link extends React.Component<LinkProps> {
                     target={target}
                     onClick={onClick ? onClickHandler : undefined}
                     rel="noopener noreferrer"
+                    size={size}
                 >
                     {children}
                 </StyledLink>
