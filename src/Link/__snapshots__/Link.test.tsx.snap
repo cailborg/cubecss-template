@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<a
+  className=" css-k86ds9"
+  href="#"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  rel="noopener noreferrer"
+  size="medium"
+>
+  Hello
+</a>
+`;

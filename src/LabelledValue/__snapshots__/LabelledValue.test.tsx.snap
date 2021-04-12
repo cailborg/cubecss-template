@@ -8,12 +8,12 @@ exports[`renders correctly 1`] = `
 >
   <span
     className="css-di4ebj"
-    id="1617079153584"
+    id="1618199163859"
   >
     Label
   </span>
   <span
-    aria-labelledby="1617079153584"
+    aria-labelledby="1618199163859"
     className="css-112hi8s"
     size="small"
   >
