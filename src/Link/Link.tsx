@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import { FocusRing } from "@react-aria/focus";
 
 export interface LinkProps {
-    // ref?: React.RefObject<HTMLAnchorElement>;
     href?: string;
     target?: "_blank" | "_self" | "_parent" | "_top" | "framename";
     children: string;
@@ -96,7 +95,6 @@ export class Link extends React.Component<LinkProps> {
     render() {
         
         const {
-            // ref,
             href = "#",
             target,
             trackingId,
@@ -115,8 +113,6 @@ export class Link extends React.Component<LinkProps> {
         return (
             <FocusRing focusRingClass="focus-ring">
                 <StyledLink
-                    {...other}
-                    // ref={ref}
                     inline={inline}
                     data-tracking-id={trackingId}
                     href={href}
@@ -124,6 +120,7 @@ export class Link extends React.Component<LinkProps> {
                     onClick={onClick ? onClickHandler : undefined}
                     rel="noopener noreferrer"
                     size={size}
+                    {...other}
                 >
                     {children}
                 </StyledLink>
