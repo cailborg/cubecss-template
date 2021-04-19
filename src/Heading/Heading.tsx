@@ -1,5 +1,6 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import React from "react";
-import styled from "@emotion/styled";
 
 export interface HeadingProps {
     variant?: "jumbo" | "xxxl" | "xxl" | "xl" | "lg" | "md" | "sm" | "xs";
@@ -17,7 +18,9 @@ export const Heading: React.FC<HeadingProps> = ({
     id,
     className,
 }) => {
-    const HeadingTag = styled.h1`
+    const Tag = tagName;
+    return (
+        <Tag className={className} id={id} css={css`
         text-align: ${alignment ?? "inherit"};
         font-family: var(--lp-fonts-heading-${variant});
         font-size: var(--lp-font-size-heading-${variant});
@@ -27,10 +30,6 @@ export const Heading: React.FC<HeadingProps> = ({
         & + p {
             margin-top: var(--lp-paragraph-spacing-heading-${variant});
         }
-    `;
-    return (
-        <HeadingTag className={className} as={`${tagName}`} id={id}>
-            {children}
-        </HeadingTag>
+      `}>{children}</Tag>
     );
 };
