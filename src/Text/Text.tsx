@@ -1,5 +1,6 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import React from "react";
-import styled from "@emotion/styled";
 
 export interface TextProps {
     variant?: "body-1" | "body-2" | "body-3" | "caption" | "overline";
@@ -20,7 +21,9 @@ export const Text: React.FC<TextProps> = ({
     className,
     isEmphasised = false,
 }) => {
-    const TextTag = styled.span`
+    const Tag = tagName;
+    return (
+        <Tag className={className} id={id} css={css`
         text-align: ${alignment ?? "inherit"};
         font-family: var(--lp-fonts-${variant});
         font-size: var(--lp-font-size-${variant});
@@ -31,10 +34,6 @@ export const Text: React.FC<TextProps> = ({
             margin-top: var(--lp-paragraph-spacing-${variant});
         }
         font-weight: ${isEmphasised ? "700" : "400"};
-    `;
-    return (
-        <TextTag className={className} as={`${tagName}`} id={id}>
-            {children}
-        </TextTag>
+      `}>{children}</Tag>
     );
 };
