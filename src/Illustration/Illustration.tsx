@@ -5,6 +5,7 @@ export interface IllustrationProps {
     title: string;
     name: string;
     size: "small" | "medium" | "large";
+    monochrome?: boolean;
 }
 
 const getSize = (size: string) => {
@@ -29,14 +30,15 @@ const Wrapper = styled.div<{ size: string }>`
 export const Illustration: React.FC<IllustrationProps> = ({
     name,
     title,
-    size
+    size,
+    monochrome = false
 }) => {
     const [SvgComponent, setSvgComponent] = useState<
         undefined | React.ElementType
     >();
     useEffect(() => {
         import(
-            `!@svgr/webpack?+titleProp!../_assets/Illustrations/svg/${name}.svg`
+            `!@svgr/webpack?+titleProp!../_assets/Illustrations/svg/${monochrome ? `monochrome` : `color`}/${name}.svg`
         ).then(
             m =>
                 setSvgComponent(

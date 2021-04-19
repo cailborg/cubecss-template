@@ -1,24 +1,25 @@
 <svg width="192" height="192" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#Tracking__clip0)">
+  <g clip-path="url(#Name=Tracking__clip0)">
     <path fill="#fff" d="M0 0h192v192H0z"/>
     <path d="M172.279 38.958c13.858 27.184-30.284 102.702-64.63 94.742-34.346-7.961-64.222-46.935-64.686-62.511-.464-15.576 5.693-48.733 27.52-57.128 33.456-12.867 87.939-2.287 101.796 24.897z" fill="#FEFBF6"/>
     <path d="M147.429 135.674c7.346 61.224-116.082 41.142-128.345-8.311C6.821 77.909 27.04 41.428 41.633 32.327 56.226 23.225 132.34 6.39 147.428 19.102c23.124 19.484-7.346 55.347.001 116.572z" fill="#FEF2E4"/>
     <circle cx="145.959" cy="151.837" r="3.918" fill="#F8C079"/>
     <circle cx="173.388" cy="55.837" fill="#F8C079" r="5.878"/>
-    <g clip-path="url(#Tracking__clip1)" filter="url(#Tracking__filter0_d)">
+    <rect width="65.284" height="119.982" rx="8" transform="matrix(-.98079 -.19509 -.2932 .95605 148.471 46.124)" fill="#6734C2"/>
+    <g clip-path="url(#Name=Tracking__clip1)">
       <rect width="65" height="120" rx="8" transform="matrix(-.98079 -.19509 -.2932 .95605 148.471 42.124)" fill="#BC9EF2"/>
       <rect width="53" height="106" rx="4" transform="matrix(-.98079 -.19509 -.2932 .95605 140.24 48.602)" fill="#F8F5FE"/>
       <rect width="16" height="2" rx="1" transform="matrix(-.98079 -.19509 -.2932 .95605 123.071 40.115)" fill="#9B6EEB"/>
       <rect width="32" height="4" rx="2" transform="matrix(-.98079 -.19509 -.2932 .95605 120.952 55.733)" fill="#EBE2FB"/>
       <rect width="40" height="4" rx="2" transform="matrix(-.98079 -.19509 -.2932 .95605 125.607 65.382)" fill="#EBE2FB"/>
-      <path opacity=".5" fill="#fff" d="M145.92 63.933L35.409 70.305l-.91 30.193 110.51-6.372zm-6.446 37.264l-110.511 6.372-.367 12.175 110.51-6.372z"/>
+      <path opacity=".5" fill="#fff" d="M145.92 63.933L35.409 70.305l-.91 30.193 110.51-6.372zm-6.446 34.264l-110.511 6.372-.367 12.174 110.51-6.372z"/>
       <path d="M93.907 86.122l15.5 2.5-25 22 18.5 19.5" stroke="#FAD5A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M99.907 75.122c0 3.314-6 11-6 11s-6-7.686-6-11a6 6 0 0112 0zm9 44c0 3.314-6 11-6 11s-6-7.686-6-11a6 6 0 0112 0z" fill="#793DE4"/>
       <circle cx="93.907" cy="75.122" r="3" fill="#fff"/>
       <circle cx="102.907" cy="119.122" r="3" fill="#fff"/>
     </g>
-    <mask id="a" maskUnits="userSpaceOnUse" x="26" y="91" width="72" height="75">
-      <path d="M39.435 118.534c-1.524 3.698-9.008 17.126-12.56 23.377 16.224 28.863 47.6 24.385 52.675 22.043 4.061-1.873 14.103-5.267 18.399-9.301-12.104-2.214-36.415-7.075-40.5-8.5-4.086-1.425-4.37-10.866-3.5-13.5 1.75-3.894 4.312-14.625 4.5-15.5.234-1.093 6.193-.99 13.08-4.315 6.889-3.326 9.138-10.619 10.794-16.21 1.657-5.59-2.466-5.56-4.403-5.06-1.937.5-22.38 7.321-27.581 9.179-5.201 1.858-8.998 13.164-10.904 17.787z" fill="#F2B9D8"/>
+    <mask id="a" maskUnits="userSpaceOnUse" x="26" y="91" width="68" height="75">
+      <path d="M39.435 118.534c-1.524 3.698-9.008 17.126-12.56 23.377 16.224 28.863 47.6 24.385 52.675 22.043 4.061-1.873 10.155-2.92 14.45-6.954-13-2.5-33.303-6.951-37.5-8-8-2-3.421-13.713-2.551-16.347 1.75-3.894 4.312-14.625 4.5-15.5.234-1.093 6.193-.99 13.08-4.315 6.889-3.326 9.138-10.619 10.794-16.21 1.657-5.59-2.466-5.56-4.403-5.06-1.937.5-22.38 7.321-27.581 9.179-5.201 1.858-8.998 13.164-10.904 17.787z" fill="#F2B9D8"/>
     </mask>
     <g mask="url(#a)">
       <path d="M39.435 118.534c-1.525 3.698-9.008 17.126-12.56 23.377 16.223 28.863 47.6 24.385 52.675 22.043 4.061-1.873 13.667-10.409 17.962-14.443-12.103-2.214-37.33-6.999-41.416-8.424-4.085-1.424-3.367-7.049-2.497-9.683 1.75-3.893 5.296-11.899 5.483-12.774.234-1.093 5.56-2.467 12.448-5.792 6.888-3.326 9.137-10.619 10.793-16.21 1.657-5.59-2.466-5.56-4.403-5.06-1.937.5-22.38 7.321-27.581 9.179-5.201 1.858-8.998 13.164-10.904 17.787z" fill="#F2B9D8"/>
@@ -27,19 +28,11 @@
     </g>
   </g>
   <defs>
-    <clipPath id="Tracking__clip0">
+    <clipPath id="Name=Tracking__clip0">
       <path fill="#fff" d="M0 0h192v192H0z"/>
     </clipPath>
-    <clipPath id="Tracking__clip1">
-      <path fill="#fff" transform="matrix(-.98079 -.19509 -.2932 .95605 148.471 42.124)" d="M0 0h65.284v117.551H0z"/>
+    <clipPath id="Name=Tracking__clip1">
+      <path fill="#fff" transform="matrix(-.98079 -.19509 -.2932 .95605 148.471 42.124)" d="M0 0h65.284v119.982H0z"/>
     </clipPath>
-    <filter id="Tracking__filter0_d" x="49.975" y="29.388" width="98.496" height="129.121" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-      <feOffset dy="4"/>
-      <feColorMatrix values="0 0 0 0 0.356863 0 0 0 0 0.180392 0 0 0 0 0.670588 0 0 0 1 0"/>
-      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
-      <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-    </filter>
   </defs>
 </svg>

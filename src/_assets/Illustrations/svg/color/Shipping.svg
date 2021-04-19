@@ -1,5 +1,5 @@
 <svg width="192" height="192" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#Shipping__clip0)">
+  <g clip-path="url(#Name=Shipping__clip0)">
     <path fill="#fff" d="M0 0h192v192H0z"/>
     <path d="M172.279 38.958c13.858 27.184-30.284 102.702-64.63 94.742-34.346-7.961-64.222-46.935-64.686-62.511-.464-15.576 5.693-48.733 27.52-57.128 33.456-12.867 87.939-2.287 101.796 24.897z" fill="#FEFBF6"/>
     <path d="M151.837 157.714c-21.202 26.297-129.832 15.705-132.753-30.351-2.92-46.057 28.037-81.037 42.63-90.138 14.594-9.102 44.574-25.142 59.661-12.43 23.124 19.484 51.663 106.623 30.462 132.919z" fill="#FEF2E4"/>
@@ -16,7 +16,7 @@
     <circle cx="157.714" cy="141.061" fill="#F8C079" r="5.878"/>
   </g>
   <defs>
-    <clipPath id="Shipping__clip0">
+    <clipPath id="Name=Shipping__clip0">
       <path fill="#fff" d="M0 0h192v192H0z"/>
     </clipPath>
   </defs>
