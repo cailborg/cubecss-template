@@ -1,5 +1,5 @@
 <svg width="192" height="192" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g clip-path="url(#Returns__clip0)">
+  <g clip-path="url(#Name=Returns__clip0)">
     <path fill="#fff" d="M0 0h192v192H0z"/>
     <path d="M172.279 38.958c13.858 27.184-30.284 102.702-64.63 94.742-34.346-7.961-64.222-46.935-64.686-62.511-.464-15.576 5.693-48.733 27.52-57.128 33.456-12.867 87.939-2.287 101.796 24.897z" fill="#FEFBF6"/>
     <path d="M183.913 111.353c20.328 27.853-55.603 79.248-88.006 74.475-32.402-4.773-75.734-46.306-80.853-63.101-5.12-16.795-9.777-53.344 6.744-64.862 25.321-17.654 141.787 25.634 162.115 53.488z" fill="#FEF2E4"/>
@@ -13,7 +13,7 @@
     <circle cx="170.449" cy="85.225" fill="#F8C079" r="5.878"/>
   </g>
   <defs>
-    <clipPath id="Returns__clip0">
+    <clipPath id="Name=Returns__clip0">
       <path fill="#fff" d="M0 0h192v192H0z"/>
     </clipPath>
   </defs>
