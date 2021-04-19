@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="css-1povu0j"
+>
+  <div
+    className="css-1ov7xgf"
+    size="medium"
+  >
+    <p
+      className="css-d21g04-Text"
+    >
+      someText
+    </p>
+  </div>
+  <label
+    className="css-1y0vz5m"
+    size="medium"
+  >
+    <input
+      className=""
+      onBlur={[Function]}
+      onFocus={[Function]}
+      type="checkbox"
+    />
+    <span />
+  </label>
+</div>
+`;
